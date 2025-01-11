@@ -7,10 +7,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dzx/Documents/basket/src/basket/src/camera.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/camera.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/main.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/main.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/myinfer.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/mythread.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/pclprocess.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/ros_basket.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/uart.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/uart.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -26,7 +24,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
   "BOOST_SERIALIZATION_NO_LIB"
   "BOOST_SYSTEM_DYN_LINK"
   "BOOST_SYSTEM_NO_LIB"
-  "ELPP_NO_DEFAULT_LOG_FILE"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"basket\""

@@ -488,33 +488,6 @@ src/myinfer.cpp.s:
 	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.s
 .PHONY : src/myinfer.cpp.s
 
-src/mythread.o: src/mythread.cpp.o
-
-.PHONY : src/mythread.o
-
-# target to build an object file
-src/mythread.cpp.o:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o
-.PHONY : src/mythread.cpp.o
-
-src/mythread.i: src/mythread.cpp.i
-
-.PHONY : src/mythread.i
-
-# target to preprocess a source file
-src/mythread.cpp.i:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/mythread.cpp.i
-.PHONY : src/mythread.cpp.i
-
-src/mythread.s: src/mythread.cpp.s
-
-.PHONY : src/mythread.s
-
-# target to generate assembly for a file
-src/mythread.cpp.s:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/mythread.cpp.s
-.PHONY : src/mythread.cpp.s
-
 src/pclprocess.o: src/pclprocess.cpp.o
 
 .PHONY : src/pclprocess.o
@@ -569,33 +542,6 @@ src/ros_basket.cpp.s:
 	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.s
 .PHONY : src/ros_basket.cpp.s
 
-src/uart.o: src/uart.cpp.o
-
-.PHONY : src/uart.o
-
-# target to build an object file
-src/uart.cpp.o:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.o
-.PHONY : src/uart.cpp.o
-
-src/uart.i: src/uart.cpp.i
-
-.PHONY : src/uart.i
-
-# target to preprocess a source file
-src/uart.cpp.i:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.i
-.PHONY : src/uart.cpp.i
-
-src/uart.s: src/uart.cpp.s
-
-.PHONY : src/uart.s
-
-# target to generate assembly for a file
-src/uart.cpp.s:
-	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.s
-.PHONY : src/uart.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -634,18 +580,12 @@ help:
 	@echo "... src/myinfer.o"
 	@echo "... src/myinfer.i"
 	@echo "... src/myinfer.s"
-	@echo "... src/mythread.o"
-	@echo "... src/mythread.i"
-	@echo "... src/mythread.s"
 	@echo "... src/pclprocess.o"
 	@echo "... src/pclprocess.i"
 	@echo "... src/pclprocess.s"
 	@echo "... src/ros_basket.o"
 	@echo "... src/ros_basket.i"
 	@echo "... src/ros_basket.s"
-	@echo "... src/uart.o"
-	@echo "... src/uart.i"
-	@echo "... src/uart.s"
 .PHONY : help
 
 

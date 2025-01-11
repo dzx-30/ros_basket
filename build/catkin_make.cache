@@ -1,2 +1,2 @@
 basket
--DCMAKE_BUILD_TYPE=RelWithDebInfo -DCATKIN_DEVEL_PREFIX=/home/dzx/Documents/basket/devel -DCMAKE_INSTALL_PREFIX=/home/dzx/Documents/basket/install -G Unix Makefiles
+-DCATKIN_DEVEL_PREFIX=/home/dzx/Documents/basket/devel -DCMAKE_INSTALL_PREFIX=/home/dzx/Documents/basket/install -G Unix Makefiles

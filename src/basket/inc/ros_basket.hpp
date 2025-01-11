@@ -1,5 +1,4 @@
 #pragma once
-#include <pthread.h>
 #include <memory>
 #include <functional>
 #include <chrono>

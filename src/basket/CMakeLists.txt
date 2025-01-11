@@ -214,7 +214,6 @@ find_package(OpenCV REQUIRED)
 find_package(CUDA REQUIRED)
 find_package(k4a REQUIRED)
 find_package(PCL 1.13 REQUIRED)
-find_package(realsense2 REQUIRED)
 
 
 include_directories(
@@ -224,8 +223,7 @@ include_directories(
 )
 
 add_executable(basket_node src/main.cpp src/camera.cpp src/myinfer.cpp 
-                    src/pclprocess.cpp src/ros_basket.cpp src/mythread.cpp
-                    src/uart.cpp)
+                    src/pclprocess.cpp src/ros_basket.cpp )
 
 
 target_link_libraries(basket_node 
@@ -237,5 +235,4 @@ target_link_libraries(basket_node
     cuda cublas cudart cudnn
     ${TENSORRT_DIR}/lib/libnvinfer.so
     Threads::Threads
-    realsense2::realsense2
 )

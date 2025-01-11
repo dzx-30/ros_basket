@@ -122,41 +122,13 @@ basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basket_node.dir/src/ros_basket.cpp.s"
 	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzx/Documents/basket/src/basket/src/ros_basket.cpp -o CMakeFiles/basket_node.dir/src/ros_basket.cpp.s
 
-basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o: basket/CMakeFiles/basket_node.dir/flags.make
-basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o: /home/dzx/Documents/basket/src/basket/src/mythread.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzx/Documents/basket/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basket_node.dir/src/mythread.cpp.o -c /home/dzx/Documents/basket/src/basket/src/mythread.cpp
-
-basket/CMakeFiles/basket_node.dir/src/mythread.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basket_node.dir/src/mythread.cpp.i"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzx/Documents/basket/src/basket/src/mythread.cpp > CMakeFiles/basket_node.dir/src/mythread.cpp.i
-
-basket/CMakeFiles/basket_node.dir/src/mythread.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basket_node.dir/src/mythread.cpp.s"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzx/Documents/basket/src/basket/src/mythread.cpp -o CMakeFiles/basket_node.dir/src/mythread.cpp.s
-
-basket/CMakeFiles/basket_node.dir/src/uart.cpp.o: basket/CMakeFiles/basket_node.dir/flags.make
-basket/CMakeFiles/basket_node.dir/src/uart.cpp.o: /home/dzx/Documents/basket/src/basket/src/uart.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dzx/Documents/basket/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object basket/CMakeFiles/basket_node.dir/src/uart.cpp.o"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/basket_node.dir/src/uart.cpp.o -c /home/dzx/Documents/basket/src/basket/src/uart.cpp
-
-basket/CMakeFiles/basket_node.dir/src/uart.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/basket_node.dir/src/uart.cpp.i"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dzx/Documents/basket/src/basket/src/uart.cpp > CMakeFiles/basket_node.dir/src/uart.cpp.i
-
-basket/CMakeFiles/basket_node.dir/src/uart.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/basket_node.dir/src/uart.cpp.s"
-	cd /home/dzx/Documents/basket/build/basket && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dzx/Documents/basket/src/basket/src/uart.cpp -o CMakeFiles/basket_node.dir/src/uart.cpp.s
-
 # Object files for target basket_node
 basket_node_OBJECTS = \
 "CMakeFiles/basket_node.dir/src/main.cpp.o" \
 "CMakeFiles/basket_node.dir/src/camera.cpp.o" \
 "CMakeFiles/basket_node.dir/src/myinfer.cpp.o" \
 "CMakeFiles/basket_node.dir/src/pclprocess.cpp.o" \
-"CMakeFiles/basket_node.dir/src/ros_basket.cpp.o" \
-"CMakeFiles/basket_node.dir/src/mythread.cpp.o" \
-"CMakeFiles/basket_node.dir/src/uart.cpp.o"
+"CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
 
 # External object files for target basket_node
 basket_node_EXTERNAL_OBJECTS =
@@ -166,8 +138,6 @@ basket_node_EXTERNAL_OBJECTS =
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/src/mythread.cpp.o
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/src/uart.cpp.o
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/build.make
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /opt/ros/noetic/lib/libroscpp.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libpthread.so
@@ -201,7 +171,6 @@ basket_node_EXTERNAL_OBJECTS =
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libqhull_r.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/Documents/basket/src/basket/lib/libyolo.a
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/TensorRT-8.6.1.6/lib/libnvinfer.so
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/local/lib/librealsense2.so.2.55.1
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/local/lib/libopencv_objdetect.so.3.2.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/local/lib/libopencv_calib3d.so.3.2.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/local/lib/libopencv_features2d.so.3.2.0
@@ -285,9 +254,8 @@ basket_node_EXTERNAL_OBJECTS =
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_atomic.so.1.82.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_iostreams.so.1.82.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_serialization.so.1.82.0
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/local/lib/librsutils.a
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dzx/Documents/basket/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable /home/dzx/Documents/basket/devel/lib/basket/basket_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dzx/Documents/basket/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable /home/dzx/Documents/basket/devel/lib/basket/basket_node"
 	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/basket_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

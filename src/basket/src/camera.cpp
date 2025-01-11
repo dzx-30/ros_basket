@@ -54,6 +54,7 @@ void K4a::Configuration()
 
     k4aCalibration = device.get_calibration(config.depth_mode, config.color_resolution);
     k4aTransformation = k4a::transformation(k4aCalibration);
+    color_intrinsics = k4aCalibration.color_camera_calibration;
 }
 
 void K4a::Image_to_Cv(cv::Mat &image_cv_color, cv::Mat &image_cv_depth)
@@ -75,7 +76,6 @@ void K4a::Image_to_Cv(cv::Mat &image_cv_color, cv::Mat &image_cv_depth)
         image_cv_depth.convertTo(image_cv_depth, CV_8U);
         cv::resize(image_cv_xyz, image_cv_xyz, image_cv_depth.size(), 0, 0, cv::INTER_LINEAR);
         // cv::imshow("xyz", image_cv_xyz);
-        std::cout << "ok" << std::endl;
     }
 }
 
@@ -160,7 +160,6 @@ void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArra
             }
         }
     }
-    std::cout << "Global PointCloud:" << cloud.size() << std::endl;
 }
 
 K4a::K4a()
