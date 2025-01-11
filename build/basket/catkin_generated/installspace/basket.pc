@@ -1,0 +1,8 @@
+prefix=/home/dzx/Documents/basket/install
+
+Name: basket
+Description: Description of basket
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
