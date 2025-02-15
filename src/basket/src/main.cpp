@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     {
         RosBasket.K4a_Basket_Get();
         ros::spinOnce();
-        loop_rate.sleep();
+        // loop_rate.sleep();
     }
 
     return 0;

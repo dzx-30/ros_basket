@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/dzx/Documents/basket/devel/lib/basket/basket_node"
-  "/home/dzx/Documents/basket/devel/lib/basket/basket_node.pdb"
+  "/home/dzx/Documents/basket (another copy)/devel/lib/basket/basket_node"
+  "/home/dzx/Documents/basket (another copy)/devel/lib/basket/basket_node.pdb"
   "CMakeFiles/basket_node.dir/src/camera.cpp.o"
   "CMakeFiles/basket_node.dir/src/main.cpp.o"
   "CMakeFiles/basket_node.dir/src/myinfer.cpp.o"

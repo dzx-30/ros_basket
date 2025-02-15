@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/dzx/Documents/basket/src/basket/src/camera.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/camera.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/main.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/main.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/myinfer.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/pclprocess.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o"
-  "/home/dzx/Documents/basket/src/basket/src/ros_basket.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
+  "/home/dzx/Documents/basket (another copy)/src/basket/src/camera.cpp" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/basket_node.dir/src/camera.cpp.o"
+  "/home/dzx/Documents/basket (another copy)/src/basket/src/main.cpp" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/basket_node.dir/src/main.cpp.o"
+  "/home/dzx/Documents/basket (another copy)/src/basket/src/myinfer.cpp" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o"
+  "/home/dzx/Documents/basket (another copy)/src/basket/src/pclprocess.cpp" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o"
+  "/home/dzx/Documents/basket (another copy)/src/basket/src/ros_basket.cpp" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -35,7 +35,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
-  "/home/dzx/Documents/basket/src/basket/inc"
+  "/home/dzx/Documents/basket (another copy)/src/basket/inc"
   "/home/dzx/install/TensorRT-8.6.1.6/include"
   "/usr/include/include"
   "/usr/include/pcl-1.13"
@@ -43,7 +43,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/home/dzx/install/Anaconda/include"
   "/usr/include/ni"
   "/usr/include/openni2"
-  "/usr/local/include/opencv"
+  "/usr/local/include/opencv4"
   "/usr/local/include/vtk-9.1"
   "/usr/local/include/vtk-9.1/vtkfreetype/include"
   )

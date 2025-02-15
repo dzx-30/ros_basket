@@ -41,9 +41,7 @@ private:
     k4a::capture capture;
     int device_count;
     k4a::image image_k4a_color, image_k4a_depth, image_k4a_infrared;
-    k4a::image image_k4a_depth_to_color, image_k4a_depth_to_pcl;
     k4a_calibration_camera_t depth_intrinsics;
-    k4a_calibration_camera_t color_intrinsics;
     k4a::calibration k4aCalibration;
     k4a::transformation k4aTransformation;
     std::string output_dir = "/home/dzx/yolov8/train/datasets/Basket/";
@@ -54,6 +52,9 @@ private:
     cv::Mat image_cv_xyz;
 
 public:
+    k4a::image image_k4a_depth_to_color, image_k4a_depth_to_pcl;
+    k4a_calibration_camera_t color_intrinsics;
+
     void Open();
 
     void Installed_Count();

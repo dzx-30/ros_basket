@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
+CMAKE_SOURCE_DIR = "/home/dzx/Documents/basket (another copy)/src"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
+CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
 
 # Utility rule file for rosgraph_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build: rosgraph_msgs_
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 
 basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
-	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd "/home/dzx/Documents/basket (another copy)/build/basket" && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 
 basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend:
-	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src/basket /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/basket /home/dzx/Documents/basket/build/basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd "/home/dzx/Documents/basket (another copy)/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/src/basket" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build/basket" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 
