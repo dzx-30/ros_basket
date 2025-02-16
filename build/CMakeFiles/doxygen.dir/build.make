@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/dzx/Documents/basket (another copy)/src"
+CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
+CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd "/home/dzx/Documents/basket (another copy)/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build/CMakeFiles/doxygen.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

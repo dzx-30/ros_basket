@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/camera.hpp
+/home/dzx/Documents/basket/src/basket/inc/camera.hpp
 opencv2/core.hpp
 -
 opencv2/imgproc.hpp
@@ -32,9 +32,9 @@ unistd.h
 memory
 -
 yolo.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/yolo.hpp
+/home/dzx/Documents/basket/src/basket/inc/yolo.hpp
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/cpm.hpp
+/home/dzx/Documents/basket/src/basket/inc/cpm.hpp
 algorithm
 -
 condition_variable
@@ -48,7 +48,7 @@ queue
 thread
 -
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/infer.hpp
+/home/dzx/Documents/basket/src/basket/inc/infer.hpp
 initializer_list
 -
 memory
@@ -58,19 +58,19 @@ string
 vector
 -
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/myinfer.hpp
+/home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
 opencv2/opencv.hpp
 -
 cpm.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/cpm.hpp
+/home/dzx/Documents/basket/src/basket/inc/cpm.hpp
 infer.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/infer.hpp
+/home/dzx/Documents/basket/src/basket/inc/infer.hpp
 yolo.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/yolo.hpp
+/home/dzx/Documents/basket/src/basket/inc/yolo.hpp
 chrono
 -
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/pclprocess.hpp
+/home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
 pcl/point_types.h
 -
 pcl/filters/voxel_grid.h
@@ -114,7 +114,7 @@ Eigen/Dense
 unsupported/Eigen/NonLinearOptimization
 -
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/ros_basket.hpp
+/home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
 memory
 -
 functional
@@ -134,13 +134,13 @@ pcl/filters/conditional_removal.h
 pcl_conversions/pcl_conversions.h
 -
 camera.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/camera.hpp
+/home/dzx/Documents/basket/src/basket/inc/camera.hpp
 myinfer.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/myinfer.hpp
+/home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
 pclprocess.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/pclprocess.hpp
+/home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
 
-/home/dzx/Documents/basket (another copy)/src/basket/inc/yolo.hpp
+/home/dzx/Documents/basket/src/basket/inc/yolo.hpp
 future
 -
 memory
@@ -150,23 +150,9 @@ string
 vector
 -
 
-/home/dzx/Documents/basket (another copy)/src/basket/src/main.cpp
-../inc/camera.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/camera.hpp
-../inc/myinfer.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/myinfer.hpp
-../inc/pclprocess.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/pclprocess.hpp
+/home/dzx/Documents/basket/src/basket/src/ros_basket.cpp
 ../inc/ros_basket.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/ros_basket.hpp
-
-/home/dzx/Documents/basket (another copy)/src/basket/src/pclprocess.cpp
-../inc/pclprocess.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/pclprocess.hpp
-
-/home/dzx/Documents/basket (another copy)/src/basket/src/ros_basket.cpp
-../inc/ros_basket.hpp
-/home/dzx/Documents/basket (another copy)/src/basket/inc/ros_basket.hpp
+/home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
 
 /home/dzx/install/Anaconda/include/boost/algorithm/string/classification.hpp
 algorithm

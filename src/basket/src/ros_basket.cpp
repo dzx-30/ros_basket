@@ -43,25 +43,50 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     // pclprocess.Ror_Filter(35, 0.15, cloud_in);
     pclprocess.Circle_Extract(cloud_in, coeff);
     Draw_Circle(pclprocess.circle_center);
+    // Draw_Circle(coeff);
     cv::imshow("Color Seg", *(color_k4a_ptr));
     cv::waitKey(1);
 
     pcl::toROSMsg(*cloud_in, basket_msg);
     basket_msg.header.frame_id = "odom";
     pub_basket.publish(basket_msg);
-    pcl::compute3DCentroid(*cloud_in, *centroid);
-    std::cout << "x:" << centroid->x()
-              << ",y:" << centroid->y()
-              << ",z:" << centroid->z() << std::endl;
+    // pcl::compute3DCentroid(*cloud_in, *centroid);
+    // std::cout << "x:" << centroid->x()
+    //           << ",y:" << centroid->y()
+    //           << ",z:" << centroid->z() << std::endl;
+}
+
+void RosBasket::Draw_Circle(Eigen::VectorXf &coeff)
+{
+    if (coeff.size() < 3)
+    {
+        std::cerr << "Error: coeff size is less than 3!" << std::endl;
+        return;
+    }
+    float fx = k4a.color_intrinsics.intrinsics.parameters.param.fx;
+    float fy = k4a.color_intrinsics.intrinsics.parameters.param.fy;
+    float cx = k4a.color_intrinsics.intrinsics.parameters.param.cx;
+    float cy = k4a.color_intrinsics.intrinsics.parameters.param.cy;
+
+    int u = static_cast<int>(fx * coeff[0] / coeff[2] + cx);
+    int v = static_cast<int>(fy * coeff[1] / coeff[2] + cy);
+
+    if (u >= 0 && u < k4a.image_k4a_depth_to_color.get_width_pixels() &&
+        v >= 0 && v < k4a.image_k4a_depth_to_color.get_height_pixels())
+    {
+
+        std::cout << "Projected pixel coordinates: (" << u << ", " << v << ")" << std::endl;
+    }
+    else
+    {
+        std::cout << "Point outside image bounds." << std::endl;
+    }
+
+    cv::circle(*color_k4a_ptr, cv::Point(u, v), 5, cv::Scalar(0, 255, 0), -1);
 }
 
 void RosBasket::Draw_Circle(Circle3D circle_center)
 {
-    // if (coeff.size() < 3)
-    // {
-    //     std::cerr << "Error: coeff size is less than 3!" << std::endl;
-    //     return;
-    // }
     float fx = k4a.color_intrinsics.intrinsics.parameters.param.fx;
     float fy = k4a.color_intrinsics.intrinsics.parameters.param.fy;
     float cx = k4a.color_intrinsics.intrinsics.parameters.param.cx;

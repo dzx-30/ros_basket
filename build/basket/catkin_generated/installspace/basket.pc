@@ -1,4 +1,4 @@
-prefix=/home/dzx/Documents/basket (another copy)/install
+prefix=/home/dzx/Documents/basket/install
 
 Name: basket
 Description: Description of basket

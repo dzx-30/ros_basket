@@ -43,6 +43,9 @@ public:
     ~RosBasket();
 
     void K4a_Basket_Get();
+
+    void Draw_Circle(Eigen::VectorXf &coeff);
+
     void Draw_Circle(Circle3D circle_center);
 
     void clb(const sensor_msgs::PointCloud2::ConstPtr &msg);

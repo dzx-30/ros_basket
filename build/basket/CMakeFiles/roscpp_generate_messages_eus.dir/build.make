@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/dzx/Documents/basket (another copy)/src"
+CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
+CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
 
 # Utility rule file for roscpp_generate_messages_eus.
 
@@ -63,10 +63,10 @@ basket/CMakeFiles/roscpp_generate_messages_eus.dir/build: roscpp_generate_messag
 .PHONY : basket/CMakeFiles/roscpp_generate_messages_eus.dir/build
 
 basket/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
-	cd "/home/dzx/Documents/basket (another copy)/build/basket" && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_eus.dir/cmake_clean.cmake
+	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -P CMakeFiles/roscpp_generate_messages_eus.dir/cmake_clean.cmake
 .PHONY : basket/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 
 basket/CMakeFiles/roscpp_generate_messages_eus.dir/depend:
-	cd "/home/dzx/Documents/basket (another copy)/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/src/basket" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build/basket" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src/basket /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/basket /home/dzx/Documents/basket/build/basket/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : basket/CMakeFiles/roscpp_generate_messages_eus.dir/depend
 

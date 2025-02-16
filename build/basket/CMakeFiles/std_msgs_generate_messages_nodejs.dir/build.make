@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/dzx/Documents/basket (another copy)/src"
+CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
+CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
 
 # Utility rule file for std_msgs_generate_messages_nodejs.
 
@@ -63,10 +63,10 @@ basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build: std_msgs_generate
 .PHONY : basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 
 basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
-	cd "/home/dzx/Documents/basket (another copy)/build/basket" && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
+	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_nodejs.dir/cmake_clean.cmake
 .PHONY : basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend:
-	cd "/home/dzx/Documents/basket (another copy)/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/src/basket" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build/basket" "/home/dzx/Documents/basket (another copy)/build/basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src/basket /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/basket /home/dzx/Documents/basket/build/basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : basket/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
 

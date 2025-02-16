@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/home/dzx/Documents/basket (another copy)/src"
+CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
+CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
 
 # Utility rule file for clean_test_results.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = "/home/dzx/Documents/basket (another copy)/build"
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/home/dzx/install/Anaconda/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/dzx/Documents/basket\ (another\ copy)/build/test_results
+	/home/dzx/install/Anaconda/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/dzx/Documents/basket/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd "/home/dzx/Documents/basket (another copy)/build" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/src" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build" "/home/dzx/Documents/basket (another copy)/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake" --color=$(COLOR)
+	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 

@@ -66,7 +66,7 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     extract.filter(*cloud_ptr);
 
     std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
-    std::cout << "x:" << coeff[0] << ",y:" << coeff[1] << ",z:" << coeff[2] << ",r=" << coeff[3] << std::endl;
+    std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
 
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 }

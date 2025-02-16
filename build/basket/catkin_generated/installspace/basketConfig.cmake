@@ -67,14 +67,14 @@ set(basket_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(basket_SOURCE_PREFIX /home/dzx/Documents/basket (another copy)/src/basket)
-  set(basket_DEVEL_PREFIX /home/dzx/Documents/basket (another copy)/devel)
+  set(basket_SOURCE_PREFIX /home/dzx/Documents/basket/src/basket)
+  set(basket_DEVEL_PREFIX /home/dzx/Documents/basket/devel)
   set(basket_INSTALL_PREFIX "")
   set(basket_PREFIX ${basket_DEVEL_PREFIX})
 else()
   set(basket_SOURCE_PREFIX "")
   set(basket_DEVEL_PREFIX "")
-  set(basket_INSTALL_PREFIX /home/dzx/Documents/basket (another copy)/install)
+  set(basket_INSTALL_PREFIX /home/dzx/Documents/basket/install)
   set(basket_PREFIX ${basket_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/dzx/Documents/basket (another copy)/install/lib;/home/dzx/Documents/basket (another copy)/devel/lib;/home/dzx/install/livox/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/dzx/Documents/basket/install/lib;/home/dzx/Documents/basket/devel/lib;/home/dzx/install/livox/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)
