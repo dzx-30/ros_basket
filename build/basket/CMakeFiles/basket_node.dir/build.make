@@ -167,6 +167,10 @@ basket_node_EXTERNAL_OBJECTS =
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libpcl_apps.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libpcl_outofcore.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libpcl_people.so
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libOpenNI.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libusb-1.0.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libOpenNI2.so
@@ -248,11 +252,10 @@ basket_node_EXTERNAL_OBJECTS =
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libGLX.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/libpcl_common.so
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_system.so.1.82.0
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_filesystem.so.1.82.0
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_atomic.so.1.82.0
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_iostreams.so.1.82.0
-/home/dzx/Documents/basket/devel/lib/basket/basket_node: /home/dzx/install/Anaconda/lib/libboost_serialization.so.1.82.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
+/home/dzx/Documents/basket/devel/lib/basket/basket_node: /usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0
 /home/dzx/Documents/basket/devel/lib/basket/basket_node: basket/CMakeFiles/basket_node.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dzx/Documents/basket/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable /home/dzx/Documents/basket/devel/lib/basket/basket_node"
 	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/basket_node.dir/link.txt --verbose=$(VERBOSE)

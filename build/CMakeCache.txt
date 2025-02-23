@@ -21,18 +21,18 @@ BUILD_GMOCK:BOOL=ON
 BUILD_SHARED_LIBS:BOOL=ON
 
 //The directory containing a CMake configuration file for Boost.
-Boost_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/Boost-1.82.0
+Boost_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0
 
-Boost_FILESYSTEM_LIBRARY_RELEASE:STRING=/home/dzx/install/Anaconda/lib/libboost_filesystem.so.1.82.0
+Boost_FILESYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.71.0
 
 //Path to a file.
-Boost_INCLUDE_DIR:PATH=/home/dzx/install/Anaconda/include
+Boost_INCLUDE_DIR:PATH=/usr/include
 
-Boost_IOSTREAMS_LIBRARY_RELEASE:STRING=/home/dzx/install/Anaconda/lib/libboost_iostreams.so.1.82.0
+Boost_IOSTREAMS_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.71.0
 
-Boost_SERIALIZATION_LIBRARY_RELEASE:STRING=/home/dzx/install/Anaconda/lib/libboost_serialization.so.1.82.0
+Boost_SERIALIZATION_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.71.0
 
-Boost_SYSTEM_LIBRARY_RELEASE:STRING=/home/dzx/install/Anaconda/lib/libboost_system.so.1.82.0
+Boost_SYSTEM_LIBRARY_RELEASE:STRING=/usr/lib/x86_64-linux-gnu/libboost_system.so.1.71.0
 
 //List of ';' separated packages to exclude
 CATKIN_BLACKLIST_PACKAGES:STRING=
@@ -466,7 +466,7 @@ EIGEN_INCLUDE_DIR:PATH=/usr/include/eigen3
 EMPY_EXECUTABLE:FILEPATH=EMPY_EXECUTABLE-NOTFOUND
 
 //Empy script
-EMPY_SCRIPT:STRING=/home/dzx/install/Anaconda/lib/python3.12/site-packages/em.py
+EMPY_SCRIPT:STRING=/usr/lib/python3/dist-packages/em.py
 
 //Path to a file.
 FLANN_INCLUDE_DIR:PATH=/usr/include
@@ -501,11 +501,38 @@ Fontconfig_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 Fontconfig_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontconfig.so
 
+//Path to a library.
+GMOCK_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgmock.a
+
+//Path to a library.
+GMOCK_LIBRARY_DEBUG:FILEPATH=GMOCK_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GMOCK_MAIN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgmock_main.a
+
+//Path to a library.
+GMOCK_MAIN_LIBRARY_DEBUG:FILEPATH=GMOCK_MAIN_LIBRARY_DEBUG-NOTFOUND
+
 //The directory containing a CMake configuration file for GMock.
 GMock_DIR:PATH=GMock_DIR-NOTFOUND
 
+//Path to a file.
+GTEST_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+GTEST_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgtest.a
+
+//Path to a library.
+GTEST_LIBRARY_DEBUG:FILEPATH=GTEST_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GTEST_MAIN_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libgtest_main.a
+
+//Path to a library.
+GTEST_MAIN_LIBRARY_DEBUG:FILEPATH=GTEST_MAIN_LIBRARY_DEBUG-NOTFOUND
+
 //The directory containing a CMake configuration file for GTest.
-GTest_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/GTest
+GTest_DIR:PATH=GTest_DIR-NOTFOUND
 
 //Enable installation of googletest. (Projects embedding googletest
 // may want to turn this OFF.)
@@ -779,13 +806,13 @@ PNG_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libpng.so
 PNG_PNG_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a program.
-PYTHON_EXECUTABLE:FILEPATH=/home/dzx/install/Anaconda/bin/python3
+PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python3
 
 //Specify specific Python version to use ('major.minor' or 'major')
 PYTHON_VERSION:STRING=3
 
 //Location of Python module em
-PY_EM:STRING=/home/dzx/install/Anaconda/lib/python3.12/site-packages/em.py
+PY_EM:STRING=/usr/lib/python3/dist-packages/em.py
 
 //Value Computed by CMake
 Project_BINARY_DIR:STATIC=/home/dzx/Documents/basket/build
@@ -1084,23 +1111,20 @@ basket_BINARY_DIR:STATIC=/home/dzx/Documents/basket/build/basket
 //Value Computed by CMake
 basket_SOURCE_DIR:STATIC=/home/dzx/Documents/basket/src/basket
 
-//The directory containing a CMake configuration file for boost_atomic.
-boost_atomic_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_atomic-1.82.0
-
 //The directory containing a CMake configuration file for boost_filesystem.
-boost_filesystem_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_filesystem-1.82.0
+boost_filesystem_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_filesystem-1.71.0
 
 //The directory containing a CMake configuration file for boost_headers.
-boost_headers_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_headers-1.82.0
+boost_headers_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_headers-1.71.0
 
 //The directory containing a CMake configuration file for boost_iostreams.
-boost_iostreams_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_iostreams-1.82.0
+boost_iostreams_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_iostreams-1.71.0
 
 //The directory containing a CMake configuration file for boost_serialization.
-boost_serialization_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_serialization-1.82.0
+boost_serialization_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_serialization-1.71.0
 
 //The directory containing a CMake configuration file for boost_system.
-boost_system_DIR:PATH=/home/dzx/install/Anaconda/lib/cmake/boost_system-1.82.0
+boost_system_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/boost_system-1.71.0
 
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/noetic/share/catkin/cmake
@@ -1525,7 +1549,7 @@ CUDA_run_nvcc:INTERNAL=/usr/share/cmake-3.16/Modules/FindCUDA/run_nvcc.cmake
 //ADVANCED property for variable: EIGEN_INCLUDE_DIR
 EIGEN_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //Details about finding Boost
-FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/home/dzx/install/Anaconda/lib/cmake/Boost-1.82.0/BoostConfig.cmake][cfound components: system filesystem iostreams serialization ][v1.82.0(1.65.0)]
+FIND_PACKAGE_MESSAGE_DETAILS_Boost:INTERNAL=[/usr/lib/x86_64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake][cfound components: system filesystem iostreams serialization ][v1.71.0(1.65.0)]
 //Details about finding CUDA
 FIND_PACKAGE_MESSAGE_DETAILS_CUDA:INTERNAL=[/usr/local/cuda][/usr/local/cuda/bin/nvcc][/usr/local/cuda/include][/usr/local/cuda/lib64/libcudart_static.a][v12.2()]
 //Details about finding Eigen
@@ -1541,7 +1565,7 @@ FIND_PACKAGE_MESSAGE_DETAILS_OpenNI:INTERNAL=[/usr/lib/libOpenNI.so;libusb::libu
 //Details about finding OpenNI2
 FIND_PACKAGE_MESSAGE_DETAILS_OpenNI2:INTERNAL=[/usr/lib/libOpenNI2.so;libusb::libusb][/usr/include/openni2][v2.2.0.33()]
 //Details about finding PCL
-FIND_PACKAGE_MESSAGE_DETAILS_PCL:INTERNAL=[pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;Boost::system;Boost::filesystem;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::RenderingContextOpenGL2;FLANN::FLANN;QHULL::QHULL][/usr/include/pcl-1.13;/usr/include/eigen3;/home/dzx/install/Anaconda/include;/usr/include/ni;/usr/include/openni2;/usr/include][v(1.13)]
+FIND_PACKAGE_MESSAGE_DETAILS_PCL:INTERNAL=[pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;Boost::system;Boost::filesystem;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::RenderingContextOpenGL2;FLANN::FLANN;QHULL::QHULL][/usr/include/pcl-1.13;/usr/include/eigen3;/usr/include;/usr/include/ni;/usr/include/openni2][v(1.13)]
 //Details about finding PCL_2D
 FIND_PACKAGE_MESSAGE_DETAILS_PCL_2D:INTERNAL=[/usr/include/pcl-1.13][v()]
 //Details about finding PCL_APPS
@@ -1589,9 +1613,9 @@ FIND_PACKAGE_MESSAGE_DETAILS_PCL_VISUALIZATION:INTERNAL=[/usr/lib/libpcl_visuali
 //Details about finding PNG
 FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpng.so][/usr/include][v1.6.37()]
 //Details about finding PY_em
-FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/home/dzx/install/Anaconda/lib/python3.12/site-packages/em.py][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
 //Details about finding PythonInterp
-FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/home/dzx/install/Anaconda/bin/python3][v3.12.7()]
+FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.8.10()]
 //Details about finding Qhull
 FIND_PACKAGE_MESSAGE_DETAILS_Qhull:INTERNAL=[/usr/lib/x86_64-linux-gnu/libqhull_r.so][/usr/include][v()]
 //Details about finding Threads
@@ -1619,11 +1643,29 @@ GMOCK_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GMOCK_FROM_SOURCE_LIBRARIES:INTERNAL=gmock
 GMOCK_FROM_SOURCE_LIBRARY_DIRS:INTERNAL=/home/dzx/Documents/basket/build/gmock
 GMOCK_FROM_SOURCE_MAIN_LIBRARIES:INTERNAL=gmock_main
+//ADVANCED property for variable: GMOCK_LIBRARY
+GMOCK_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GMOCK_LIBRARY_DEBUG
+GMOCK_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GMOCK_MAIN_LIBRARY
+GMOCK_MAIN_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GMOCK_MAIN_LIBRARY_DEBUG
+GMOCK_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 GTEST_FROM_SOURCE_FOUND:INTERNAL=TRUE
 GTEST_FROM_SOURCE_INCLUDE_DIRS:INTERNAL=/usr/include
 GTEST_FROM_SOURCE_LIBRARIES:INTERNAL=gtest
 GTEST_FROM_SOURCE_LIBRARY_DIRS:INTERNAL=/home/dzx/Documents/basket/build/gtest
 GTEST_FROM_SOURCE_MAIN_LIBRARIES:INTERNAL=gtest_main
+//ADVANCED property for variable: GTEST_INCLUDE_DIR
+GTEST_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GTEST_LIBRARY
+GTEST_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GTEST_LIBRARY_DEBUG
+GTEST_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GTEST_MAIN_LIBRARY
+GTEST_MAIN_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GTEST_MAIN_LIBRARY_DEBUG
+GTEST_MAIN_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR
@@ -2160,8 +2202,6 @@ __pkg_config_checked_PC_OPENNI:INTERNAL=1
 __pkg_config_checked_PC_OPENNI2:INTERNAL=1
 __pkg_config_checked_PC_libusb:INTERNAL=1
 __pkg_config_checked_PKG_FONTCONFIG:INTERNAL=1
-//ADVANCED property for variable: boost_atomic_DIR
-boost_atomic_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: boost_filesystem_DIR
 boost_filesystem_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: boost_headers_DIR

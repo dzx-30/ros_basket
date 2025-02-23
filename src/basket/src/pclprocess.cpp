@@ -1,18 +1,5 @@
 #include "../inc/pclprocess.hpp"
 
-void PclProcess::Input_PointCloud(std::string &pcd_path, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
-{
-    if (pcl::io::loadPLYFile<pcl::PointXYZ>(pcd_path, *cloud_ptr) == -1)
-    {
-        PCL_ERROR("Couldn't Read File\n");
-        return;
-    }
-    else
-    {
-        std::cout << "Input Cloud Size:" << cloud_ptr->size() << std::endl;
-    }
-}
-
 void PclProcess::Vg_Filter(float leafsize, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
 {
     vg.setInputCloud(cloud_ptr);

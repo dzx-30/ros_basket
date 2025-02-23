@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/home/dzx/install/Anaconda/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/dzx/Documents/basket/build/test_results
+	/usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/dzx/Documents/basket/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make

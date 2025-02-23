@@ -14,16 +14,11 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
-  "BOOST_ATOMIC_DYN_LINK"
-  "BOOST_ATOMIC_NO_LIB"
+  "BOOST_ALL_NO_LIB"
   "BOOST_FILESYSTEM_DYN_LINK"
-  "BOOST_FILESYSTEM_NO_LIB"
   "BOOST_IOSTREAMS_DYN_LINK"
-  "BOOST_IOSTREAMS_NO_LIB"
   "BOOST_SERIALIZATION_DYN_LINK"
-  "BOOST_SERIALIZATION_NO_LIB"
   "BOOST_SYSTEM_DYN_LINK"
-  "BOOST_SYSTEM_NO_LIB"
   "ROSCONSOLE_BACKEND_LOG4CXX"
   "ROS_BUILD_SHARED_LIBS=1"
   "ROS_PACKAGE_NAME=\"basket\""
@@ -37,13 +32,12 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/home/dzx/Documents/basket/src/basket/inc"
   "/home/dzx/install/TensorRT-8.6.1.6/include"
-  "/usr/include/include"
+  "/usr/include/openni2/include"
   "/usr/include/pcl-1.13"
   "/usr/include/eigen3"
-  "/home/dzx/install/Anaconda/include"
   "/usr/include/ni"
-  "/usr/include/openni2"
   "/usr/local/include/opencv4"
+  "/usr/include/openni2"
   "/usr/local/include/vtk-9.1"
   "/usr/local/include/vtk-9.1/vtkfreetype/include"
   )

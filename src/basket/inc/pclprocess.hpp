@@ -86,8 +86,6 @@ private:
 public:
     Circle3D circle_center;
 
-    void Input_PointCloud(std::string &pcd_path, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
-
     void Input_PointCloud(pcl::PointCloud<pcl::PointXYZ> &cloud_in);
 
     void Vg_Filter(float leafsize, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
