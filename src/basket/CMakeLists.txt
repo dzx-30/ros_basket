@@ -217,16 +217,15 @@ find_package(PCL 1.13 REQUIRED)
 
 include_directories(
   inc
-  ${CUDA_INCLUDE_DIRS}
   ${TENSORRT_DIR}/include
   /usr/local/cuda/targets/aarch64-linux/include
   ${PCL_INCLUDE_DIRS}/include
 )
 
-link_directories(/usr/local/cuda-11.4/targets/aarch64-linux/lib ${CUDA_LIBRARY_DIRS})
+link_directories(/usr/local/cuda-11.4/targets/aarch64-linux/lib)
 
 add_executable(basket_node src/main.cpp src/camera.cpp src/myinfer.cpp 
-                    src/pclprocess.cpp src/ros_basket.cpp )
+                    src/pclprocess.cpp src/ros_basket.cpp src/uart.cpp)
 
 
 target_link_libraries(basket_node 
@@ -236,6 +235,5 @@ target_link_libraries(basket_node
     ${PCL_LIBRARIES}
     ${CUDA_LIBRARIES}
     nvinfer
-    ${CUDA_cudart_LIBRARY}
     k4a
 )

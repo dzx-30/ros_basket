@@ -6,5 +6,5 @@ CXX_FLAGS =  -pthread   -ffloat-store -march=native -std=gnu++17
 
 CXX_DEFINES = -DBOOST_ALL_NO_LIB -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_SERIALIZATION_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DROSCONSOLE_BACKEND_LOG4CXX -DROS_BUILD_SHARED_LIBS=1 -DROS_PACKAGE_NAME=\"basket\" -Dkiss_fft_scalar=double -Dqh_QHpointer
 
-CXX_INCLUDES = -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/nf/basket/src/basket/inc -I/usr/local/cuda-11.4/include -I/include -I/usr/local/cuda/targets/aarch64-linux/include -I/usr/include/ni/include -isystem /usr/local/include/pcl-1.13 -isystem /usr/include/eigen3 -isystem /usr/local/include/opencv4 -isystem /usr/include/ni -isystem /usr/local/include/vtk-9.2 -isystem /usr/local/include/vtk-9.2/vtknlohmannjson/include -isystem /usr/local/include/vtk-9.2/vtkfreetype/include 
+CXX_INCLUDES = -I/opt/ros/noetic/include -I/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp -I/home/nf/basket/src/basket/inc -I/include -I/usr/local/cuda/targets/aarch64-linux/include -I/usr/include/ni/include -isystem /usr/local/include/pcl-1.13 -isystem /usr/include/eigen3 -isystem /usr/local/include/opencv4 -isystem /usr/include/ni -isystem /usr/local/include/vtk-9.2 -isystem /usr/local/include/vtk-9.2/vtknlohmannjson/include -isystem /usr/local/include/vtk-9.2/vtkfreetype/include 
 

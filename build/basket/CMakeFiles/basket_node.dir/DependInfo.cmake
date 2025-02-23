@@ -31,7 +31,6 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/home/nf/basket/src/basket/inc"
-  "/usr/local/cuda-11.4/include"
   "/include"
   "/usr/local/cuda/targets/aarch64-linux/include"
   "/usr/include/ni/include"
