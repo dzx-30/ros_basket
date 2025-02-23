@@ -9,11 +9,15 @@ int main(int argc, char *argv[])
     ros::NodeHandle nh;
     ros::Rate loop_rate(1);
     RosBasket RosBasket(nh);
+    RosBasket.yol = yolo::load("/home/dzx/best.engine", yolo::Type::V8Seg);
 
     while (ros::ok())
     {
+        TIMESTART
         RosBasket.K4a_Basket_Get();
         ros::spinOnce();
+        TIMEEND
+        DURATION
         // loop_rate.sleep();
     }
 

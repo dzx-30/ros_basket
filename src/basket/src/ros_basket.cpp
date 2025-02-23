@@ -14,11 +14,7 @@ RosBasket::~RosBasket()
 void RosBasket::K4a_Basket_Get()
 {
     k4a.Image_to_Cv(*color_k4a_ptr, *depth_k4a_ptr);
-    yolo.Yolov8_Seg_Enable(*engine_v8_seg_ptr);
-    TIMESTART
-    yolo.Single_Inference(*color_k4a_ptr, *objs_ptr);
-    TIMEEND
-    DURATION
+    yolo.Single_Inference(*color_k4a_ptr, *objs_ptr, yol);
     k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *objs_ptr);
     k4a.Color_With_Mask(*color_k4a_ptr, *objs_ptr);
     k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);

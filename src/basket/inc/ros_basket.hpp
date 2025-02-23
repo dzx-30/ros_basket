@@ -38,6 +38,8 @@ private:
     std::shared_ptr<yolo::BoxArray> objs_ptr = std::make_shared<yolo::BoxArray>();
 
 public:
+    std::shared_ptr<yolo::Infer> yol;
+
     RosBasket(ros::NodeHandle &nh);
 
     ~RosBasket();
