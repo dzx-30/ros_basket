@@ -1,4 +1,4 @@
-prefix=/home/dzx/Documents/basket/devel
+prefix=/home/nf/basket/devel
 
 Name: basket
 Description: Description of basket

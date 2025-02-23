@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/dzx/Documents/basket/src
+CMAKE_SOURCE_DIR = /home/nf/basket/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/dzx/Documents/basket/build
+CMAKE_BINARY_DIR = /home/nf/basket/build
 
 # Utility rule file for rosgraph_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build: rosgraph_msgs_
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 
 basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
-	cd /home/dzx/Documents/basket/build/basket && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/nf/basket/build/basket && $(CMAKE_COMMAND) -P CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 
 basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend:
-	cd /home/dzx/Documents/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dzx/Documents/basket/src /home/dzx/Documents/basket/src/basket /home/dzx/Documents/basket/build /home/dzx/Documents/basket/build/basket /home/dzx/Documents/basket/build/basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/nf/basket/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/nf/basket/src /home/nf/basket/src/basket /home/nf/basket/build /home/nf/basket/build/basket /home/nf/basket/build/basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : basket/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
 

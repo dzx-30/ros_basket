@@ -27,8 +27,7 @@ private:
     sensor_msgs::PointCloud2 basket_msg;
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in;
     std::shared_ptr<std::string> engine_v8_ptr = std::make_shared<std::string>("/home/dzx/Documents/basic/zth/RIGHT-Infer/workspace/best.transd.engine");
-    // std::shared_ptr<std::string> engine_v8_seg_ptr = std::make_shared<std::string>("/home/dzx/Documents/basic/zth/RIGHT-Infer/workspace/best_seg.transd.engine");
-    std::shared_ptr<std::string> engine_v8_seg_ptr = std::make_shared<std::string>("/home/dzx/best.engine");
+    std::shared_ptr<std::string> engine_v8_seg_ptr = std::make_shared<std::string>("/home/nf/basket/src/basket/workspace/best.engine");
     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_seg_ptr = std::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
     std::shared_ptr<Eigen::Vector4f> centroid = std::make_shared<Eigen::Vector4f>();
     std::shared_ptr<cv::Mat> color_k4a_ptr = std::make_shared<cv::Mat>();

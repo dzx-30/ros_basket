@@ -20,16 +20,15 @@ void Yolo::Yolov8_Seg_Enable(std::string &engine_seg)
 void Yolo::Single_Inference(cv::Mat &image, yolo::BoxArray &objs_out)
 {
   auto Start = std::chrono::system_clock::now();
-
   auto yolo = yolo::load(engine, type);
   if (yolo == nullptr)
     return;
+    auto End = std::chrono::system_clock::now();
+    auto Duration = std::chrono::duration_cast<std::chrono::microseconds>(End - Start);
+    std::cout << "Infer Duration: " << double(Duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
 
   auto objs = yolo->forward(cvimg(image));
 
-  auto End = std::chrono::system_clock::now();
-  auto Duration = std::chrono::duration_cast<std::chrono::microseconds>(End - Start);
-  std::cout << "Infer Duration: " << double(Duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
 
   objs_out = objs;
 }

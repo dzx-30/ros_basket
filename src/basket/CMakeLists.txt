@@ -207,7 +207,6 @@ include_directories(
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-set(TENSORRT_DIR "/home/dzx/install/TensorRT-8.6.1.6")
 
 find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
@@ -217,10 +216,14 @@ find_package(PCL 1.13 REQUIRED)
 
 
 include_directories(
-    inc
-    ${TENSORRT_DIR}/include
-    ${PCL_INCLUDE_DIRS}/include
+  inc
+  ${CUDA_INCLUDE_DIRS}
+  ${TENSORRT_DIR}/include
+  /usr/local/cuda/targets/aarch64-linux/include
+  ${PCL_INCLUDE_DIRS}/include
 )
+
+link_directories(/usr/local/cuda-11.4/targets/aarch64-linux/lib ${CUDA_LIBRARY_DIRS})
 
 add_executable(basket_node src/main.cpp src/camera.cpp src/myinfer.cpp 
                     src/pclprocess.cpp src/ros_basket.cpp )
@@ -228,11 +231,11 @@ add_executable(basket_node src/main.cpp src/camera.cpp src/myinfer.cpp
 
 target_link_libraries(basket_node 
     ${catkin_LIBRARIES}
+    /home/nf/basket/src/basket/lib/libyolo.a
     ${OpenCV_LIBS}
     ${PCL_LIBRARIES}
+    ${CUDA_LIBRARIES}
+    nvinfer
+    ${CUDA_cudart_LIBRARY}
     k4a
-    /home/dzx/Documents/basket/src/basket/lib/libyolo.a
-    cuda cublas cudart cudnn
-    ${TENSORRT_DIR}/lib/libnvinfer.so
-    Threads::Threads
 )

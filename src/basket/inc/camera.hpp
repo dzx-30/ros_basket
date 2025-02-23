@@ -44,7 +44,7 @@ private:
     k4a_calibration_camera_t depth_intrinsics;
     k4a::calibration k4aCalibration;
     k4a::transformation k4aTransformation;
-    std::string output_dir = "/home/dzx/yolov8/train/datasets/Basket/";
+    std::string output_dir = "/home/nf/yolov8/train/datasets/Basket/";
     std::string filename;
     int frame_count = 0;
     cv::Mat mask, mask_color, mask_depth;
