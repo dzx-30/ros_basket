@@ -542,6 +542,33 @@ src/ros_basket.cpp.s:
 	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.s
 .PHONY : src/ros_basket.cpp.s
 
+src/uart.o: src/uart.cpp.o
+
+.PHONY : src/uart.o
+
+# target to build an object file
+src/uart.cpp.o:
+	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.o
+.PHONY : src/uart.cpp.o
+
+src/uart.i: src/uart.cpp.i
+
+.PHONY : src/uart.i
+
+# target to preprocess a source file
+src/uart.cpp.i:
+	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.i
+.PHONY : src/uart.cpp.i
+
+src/uart.s: src/uart.cpp.s
+
+.PHONY : src/uart.s
+
+# target to generate assembly for a file
+src/uart.cpp.s:
+	cd /home/dzx/Documents/basket/build && $(MAKE) -f basket/CMakeFiles/basket_node.dir/build.make basket/CMakeFiles/basket_node.dir/src/uart.cpp.s
+.PHONY : src/uart.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -586,6 +613,9 @@ help:
 	@echo "... src/ros_basket.o"
 	@echo "... src/ros_basket.i"
 	@echo "... src/ros_basket.s"
+	@echo "... src/uart.o"
+	@echo "... src/uart.i"
+	@echo "... src/uart.s"
 .PHONY : help
 
 

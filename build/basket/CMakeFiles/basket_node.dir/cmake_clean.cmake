@@ -6,6 +6,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/basket_node.dir/src/myinfer.cpp.o"
   "CMakeFiles/basket_node.dir/src/pclprocess.cpp.o"
   "CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
+  "CMakeFiles/basket_node.dir/src/uart.cpp.o"
 )
 
 # Per-language clean rules from dependency scanning.

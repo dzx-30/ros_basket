@@ -2390,3 +2390,6 @@ basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /usr/local/include/vtk-9
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /usr/local/include/vtk-9.1/vtkkwiml/abi.h
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /usr/local/include/vtk-9.1/vtkkwiml/int.h
 
+basket/CMakeFiles/basket_node.dir/src/uart.cpp.o: /home/dzx/Documents/basket/src/basket/inc/uart.hpp
+basket/CMakeFiles/basket_node.dir/src/uart.cpp.o: /home/dzx/Documents/basket/src/basket/src/uart.cpp
+

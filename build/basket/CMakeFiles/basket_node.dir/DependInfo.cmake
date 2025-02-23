@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/dzx/Documents/basket/src/basket/src/myinfer.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/pclprocess.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o"
   "/home/dzx/Documents/basket/src/basket/src/ros_basket.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o"
+  "/home/dzx/Documents/basket/src/basket/src/uart.cpp" "/home/dzx/Documents/basket/build/basket/CMakeFiles/basket_node.dir/src/uart.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

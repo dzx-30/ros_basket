@@ -599,10 +599,10 @@ OPENNI_LIBRARY:FILEPATH=/usr/lib/libOpenNI.so
 OpenCV_DIR:PATH=/usr/local/lib/cmake/opencv4
 
 //Path to a file.
-PCAP_INCLUDE_DIR:PATH=PCAP_INCLUDE_DIR-NOTFOUND
+PCAP_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
-PCAP_LIBRARY:FILEPATH=PCAP_LIBRARY-NOTFOUND
+PCAP_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libpcap.so
 
 //path to 2d headers
 PCL_2D_INCLUDE_DIR:PATH=/usr/include/pcl-1.13
@@ -1614,6 +1614,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_PCL_VISUALIZATION:INTERNAL=[/usr/lib/libpcl_visuali
 FIND_PACKAGE_MESSAGE_DETAILS_PNG:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpng.so][/usr/include][v1.6.37()]
 //Details about finding PY_em
 FIND_PACKAGE_MESSAGE_DETAILS_PY_em:INTERNAL=[/usr/lib/python3/dist-packages/em.py][v()]
+//Details about finding Pcap
+FIND_PACKAGE_MESSAGE_DETAILS_Pcap:INTERNAL=[/usr/lib/x86_64-linux-gnu/libpcap.so][/usr/include][v()]
 //Details about finding PythonInterp
 FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python3][v3.8.10()]
 //Details about finding Qhull

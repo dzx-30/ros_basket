@@ -223,7 +223,7 @@ include_directories(
 )
 
 add_executable(basket_node src/main.cpp src/camera.cpp src/myinfer.cpp 
-                    src/pclprocess.cpp src/ros_basket.cpp )
+                    src/pclprocess.cpp src/ros_basket.cpp src/uart.cpp)
 
 
 target_link_libraries(basket_node 
