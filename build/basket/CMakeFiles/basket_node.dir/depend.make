@@ -342,6 +342,7 @@ basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
+basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/inc/uart.hpp
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/inc/yolo.hpp
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /home/dzx/Documents/basket/src/basket/src/main.cpp
 basket/CMakeFiles/basket_node.dir/src/main.cpp.o: /opt/ros/noetic/include/pcl_conversions/pcl_conversions.h
@@ -1152,6 +1153,7 @@ basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o: /usr/local/include/opencv4/
 basket/CMakeFiles/basket_node.dir/src/myinfer.cpp.o: /usr/local/include/opencv4/opencv2/videoio.hpp
 
 basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o: /home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
+basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o: /home/dzx/Documents/basket/src/basket/inc/uart.hpp
 basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o: /home/dzx/Documents/basket/src/basket/src/pclprocess.cpp
 basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o: /usr/include/eigen3/Eigen/Cholesky
 basket/CMakeFiles/basket_node.dir/src/pclprocess.cpp.o: /usr/include/eigen3/Eigen/Core
@@ -1685,6 +1687,7 @@ basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/bask
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
+basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/inc/uart.hpp
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/inc/yolo.hpp
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /home/dzx/Documents/basket/src/basket/src/ros_basket.cpp
 basket/CMakeFiles/basket_node.dir/src/ros_basket.cpp.o: /opt/ros/noetic/include/pcl_conversions/pcl_conversions.h

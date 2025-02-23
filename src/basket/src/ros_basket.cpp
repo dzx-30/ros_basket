@@ -38,8 +38,6 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     pcl::fromROSMsg(*msg, *cloud_in);
     pclprocess.Vg_Filter(0.03, cloud_in);
     pclprocess.Sor_Filter(50, 0.01, cloud_in);
-    // std::cout << cloud_in->size() << std::endl;
-    // pclprocess.Ror_Filter(35, 0.15, cloud_in);
     pclprocess.Circle_Extract(cloud_in, coeff);
     Draw_Circle(pclprocess.circle_center);
     // Draw_Circle(coeff);
@@ -49,10 +47,6 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     pcl::toROSMsg(*cloud_in, basket_msg);
     basket_msg.header.frame_id = "odom";
     pub_basket.publish(basket_msg);
-    // pcl::compute3DCentroid(*cloud_in, *centroid);
-    // std::cout << "x:" << centroid->x()
-    //           << ",y:" << centroid->y()
-    //           << ",z:" << centroid->z() << std::endl;
 }
 
 void RosBasket::Draw_Circle(Eigen::VectorXf &coeff)

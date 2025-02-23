@@ -1,4 +1,5 @@
 #include "../inc/pclprocess.hpp"
+com::UART uart;
 
 void PclProcess::Vg_Filter(float leafsize, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
 {
@@ -56,6 +57,29 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
 
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
+
+    double degree = 32.0;
+    double radians = degree * M_PI / 180.0;
+
+    float x = circle_center.center[0] - 3.2;
+    float y = circle_center.center[1] * sin(radians) + circle_center.center[2] * cos(radians) - 31.55;
+    uint8_t sum = x + y;
+
+    if (coeff[3] < 0.24 && coeff[3] > 0.19)
+    {
+        uint8_t data[13] = {0};
+        data[0] = 0xff;
+        data[1] = 0xfe;
+        memcpy(&data[2], &x, sizeof(float));
+        memcpy(&data[6], &y, sizeof(float));
+        for (int i = 2; i < 10; i++)
+        {
+            data[10] += data[i];
+        }
+        data[11] = 0xaa;
+        data[12] = 0xdd;
+        uart.UART_SEND(data, 13);
+    }
 }
 
 Circle3D PclProcess::fitCircleLM(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, double radius, Eigen::VectorXf &coeff)
