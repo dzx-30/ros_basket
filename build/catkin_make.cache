@@ -1,2 +1,0 @@
-basket
--DCATKIN_DEVEL_PREFIX=/home/nf/basket/devel -DCMAKE_INSTALL_PREFIX=/home/nf/basket/install -G Unix Makefiles
