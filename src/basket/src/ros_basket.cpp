@@ -17,7 +17,7 @@ void RosBasket::K4a_Basket_Get()
     yolo.Single_Inference(*color_k4a_ptr, *objs_ptr, yol);
     k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *objs_ptr);
     k4a.Color_With_Mask(*color_k4a_ptr, *objs_ptr);
-    k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
+    // k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
 
     std::vector<int> valid_indices;
     pcl::removeNaNFromPointCloud(*cloud_seg_ptr, *cloud_seg_ptr, valid_indices);
