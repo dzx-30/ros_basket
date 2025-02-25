@@ -17,7 +17,7 @@ void RosBasket::K4a_Basket_Get()
     yolo.Single_Inference(*color_k4a_ptr, *objs_ptr, yol);
     k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *objs_ptr);
     k4a.Color_With_Mask(*color_k4a_ptr, *objs_ptr);
-    k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
+    // k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
 
     std::vector<int> valid_indices;
     pcl::removeNaNFromPointCloud(*cloud_seg_ptr, *cloud_seg_ptr, valid_indices);
@@ -36,7 +36,6 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     pclprocess.Sor_Filter(50, 0.01, cloud_in);
     pclprocess.Circle_Extract(cloud_in, coeff);
     Draw_Circle(pclprocess.circle_center);
-    // Draw_Circle(coeff);
     cv::imshow("Color Seg", *(color_k4a_ptr));
     cv::waitKey(1);
 
@@ -83,17 +82,6 @@ void RosBasket::Draw_Circle(Circle3D circle_center)
 
     int u = static_cast<int>(fx * circle_center.center[0] / circle_center.center[2] + cx);
     int v = static_cast<int>(fy * circle_center.center[1] / circle_center.center[2] + cy);
-
-    if (u >= 0 && u < k4a.image_k4a_depth_to_color.get_width_pixels() &&
-        v >= 0 && v < k4a.image_k4a_depth_to_color.get_height_pixels())
-    {
-
-        std::cout << "Projected pixel coordinates: (" << u << ", " << v << ")" << std::endl;
-    }
-    else
-    {
-        std::cout << "Point outside image bounds." << std::endl;
-    }
 
     cv::circle(*color_k4a_ptr, cv::Point(u, v), 5, cv::Scalar(0, 255, 0), -1);
 }

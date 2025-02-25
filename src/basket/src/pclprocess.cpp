@@ -6,7 +6,6 @@ void PclProcess::Vg_Filter(float leafsize, pcl::PointCloud<pcl::PointXYZ>::Ptr c
     vg.setInputCloud(cloud_ptr);
     vg.setLeafSize(leafsize, leafsize, leafsize);
     vg.filter(*cloud_ptr);
-    // std::cout << "Vg PointCloud Size:" << cloud_ptr->size() << std::endl;
 }
 
 void PclProcess::Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
@@ -16,7 +15,6 @@ void PclProcess::Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ
     sor.setMeanK(amount);
     sor.setStddevMulThresh(std);
     sor.filter(*cloud_ptr);
-    // std::cout << "Sor PointCloud Size:" << cloud_ptr->size() << std::endl;
 }
 
 void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
@@ -26,7 +24,6 @@ void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::Point
     ror.setRadiusSearch(radius);
     ror.setMinNeighborsInRadius(amount);
     ror.filter(*cloud_ptr);
-    // std::cout << "Ror PointCloud Size:" << cloud_ptr->size() << std::endl;
 }
 
 void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, Eigen::VectorXf &coeff)
@@ -53,17 +50,18 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     extract.setNegative(false);
     extract.filter(*cloud_ptr);
 
-    std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
-    std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
+    // std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
+    // std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
 
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 
-    double degree = 32.0;
+    double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] - 3.2;
-    float y = circle_center.center[1] * sin(radians) + circle_center.center[2] * cos(radians) - 31.55;
-    uint8_t sum = x + y;
+    float x = circle_center.center[0] * 1000 - 287.01;
+    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 - 324;
+
+    std::cout << "x = " << x << " , y = " << y << std::endl;
 
     if (coeff[3] < 0.24 && coeff[3] > 0.19)
     {

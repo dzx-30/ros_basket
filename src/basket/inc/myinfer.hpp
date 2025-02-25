@@ -9,9 +9,6 @@
 
 #include <chrono>
 
-// void batch_inference();
-// void perf();
-
 static const char *labels[] = {
     "Basket"};
 
