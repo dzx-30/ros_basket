@@ -5,18 +5,6 @@ yolo::Image Yolo::cvimg(const cv::Mat &image)
   return yolo::Image(image.data, image.cols, image.rows);
 }
 
-void Yolo::Yolov8_Enable(std::string &engine_)
-{
-  type = yolo::Type::V8;
-  engine = engine_;
-}
-
-void Yolo::Yolov8_Seg_Enable(std::string &engine_seg)
-{
-  type = yolo::Type::V8Seg;
-  engine = engine_seg;
-}
-
 void Yolo::Single_Inference(cv::Mat &image, yolo::BoxArray &objs_out, std::shared_ptr<yolo::Infer> yolo)
 {
   auto Start = std::chrono::system_clock::now();

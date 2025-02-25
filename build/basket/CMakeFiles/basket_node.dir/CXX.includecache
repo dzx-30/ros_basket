@@ -170,6 +170,12 @@ string
 vector
 -
 
+/home/dzx/Documents/basket/src/basket/src/camera.cpp
+../inc/camera.hpp
+/home/dzx/Documents/basket/src/basket/inc/camera.hpp
+../inc/myinfer.hpp
+/home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
+
 /home/dzx/Documents/basket/src/basket/src/main.cpp
 ../inc/camera.hpp
 /home/dzx/Documents/basket/src/basket/inc/camera.hpp
@@ -177,6 +183,14 @@ vector
 /home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
 ../inc/pclprocess.hpp
 /home/dzx/Documents/basket/src/basket/inc/pclprocess.hpp
+../inc/ros_basket.hpp
+/home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
+
+/home/dzx/Documents/basket/src/basket/src/myinfer.cpp
+../inc/myinfer.hpp
+/home/dzx/Documents/basket/src/basket/inc/myinfer.hpp
+
+/home/dzx/Documents/basket/src/basket/src/ros_basket.cpp
 ../inc/ros_basket.hpp
 /home/dzx/Documents/basket/src/basket/inc/ros_basket.hpp
 
