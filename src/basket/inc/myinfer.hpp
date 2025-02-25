@@ -9,9 +9,6 @@
 
 #include <chrono>
 
-// void batch_inference();
-// void perf();
-
 static const char *labels[] = {
     "Basket"};
 
@@ -33,7 +30,7 @@ public:
 
     void Single_Inference(cv::Mat &image);
 
-    void Single_Inference(cv::Mat &image, yolo::BoxArray &objs_out);
+    void Single_Inference(cv::Mat &image, yolo::BoxArray &objs_out, std::shared_ptr<yolo::Infer> yolo);
 
     Yolo();
 
