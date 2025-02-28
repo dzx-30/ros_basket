@@ -67,9 +67,9 @@ public:
 
     void Depth_With_Mask(cv::Mat &image_cv_depth, yolo::BoxArray &objs);
 
-    void Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArray &objs);
+    void Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, cv::Mat &image_cv_depth, yolo::BoxArray &objs);
 
-    void Value_Depth_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud);
+    void Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArray &objs);
 
     void Save_Image(int amount);
 

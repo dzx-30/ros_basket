@@ -5,6 +5,7 @@ RosBasket::RosBasket(ros::NodeHandle &nh)
     pub_cloud = nh.advertise<sensor_msgs::PointCloud2>("pointcloud", 10);
     sub_cloud = nh.subscribe("pointcloud", 10, &RosBasket::clb, this);
     pub_basket = nh.advertise<sensor_msgs::PointCloud2>("basket", 10);
+    pub_center = nh.advertise<sensor_msgs::PointCloud2>("center", 10);
 }
 
 RosBasket::~RosBasket()
@@ -16,6 +17,7 @@ void RosBasket::K4a_Basket_Get()
     k4a.Image_to_Cv(*color_k4a_ptr, *depth_k4a_ptr);
     yolo.Single_Inference(*color_k4a_ptr, *objs_ptr, yol);
     k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *objs_ptr);
+    // k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *depth_k4a_ptr, *objs_ptr);
     k4a.Color_With_Mask(*color_k4a_ptr, *objs_ptr);
     // k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
 
@@ -32,10 +34,25 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     cloud_in = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     Eigen::VectorXf coeff;
     pcl::fromROSMsg(*msg, *cloud_in);
-    pclprocess.Vg_Filter(0.03, cloud_in);
-    pclprocess.Sor_Filter(50, 0.01, cloud_in);
+    pclprocess.Vg_Filter(0.05, cloud_in);
+    pclprocess.Sor_Filter(50, 0.1, cloud_in);
+
+    Eigen::Vector4f centroid;
+    pcl::compute3DCentroid(*cloud_in, centroid);
+    std::cout << "centerX : " << centroid[0] << " , centerY : " << centroid[1] << " , centerZ : " << centroid[2] << std::endl;
+
     pclprocess.Circle_Extract(cloud_in, coeff);
     Draw_Circle(pclprocess.circle_center);
+
+    center.clear();
+    if (pclprocess.circle_center.center.size() != 0)
+    {
+        center.push_back(pcl::PointXYZ(pclprocess.circle_center.center[0], pclprocess.circle_center.center[1], pclprocess.circle_center.center[2]));
+        pcl::toROSMsg(center, center_msg);
+        center_msg.header.frame_id = "odom";
+        pub_center.publish(center_msg);
+    }
+
     cv::imshow("Color Seg", *(color_k4a_ptr));
     cv::waitKey(1);
 

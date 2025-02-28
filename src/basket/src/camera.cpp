@@ -42,7 +42,7 @@ void K4a::Configuration()
     config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
     config.color_format = K4A_IMAGE_FORMAT_COLOR_BGRA32;
     config.color_resolution = K4A_COLOR_RESOLUTION_720P;
-    config.depth_mode = K4A_DEPTH_MODE_NFOV_UNBINNED;
+    config.depth_mode = K4A_DEPTH_MODE_NFOV_2X2BINNED;
     config.camera_fps = K4A_FRAMES_PER_SECOND_30;
     config.synchronized_images_only = true;
 
@@ -64,7 +64,7 @@ void K4a::Image_to_Cv(cv::Mat &image_cv_color, cv::Mat &image_cv_depth)
         image_k4a_color = capture.get_color_image();
         image_k4a_depth = capture.get_depth_image();
         image_k4a_depth_to_color = k4aTransformation.depth_image_to_color_camera(image_k4a_depth);
-        image_k4a_depth_to_pcl = k4aTransformation.depth_image_to_point_cloud(image_k4a_depth, K4A_CALIBRATION_TYPE_DEPTH);
+        image_k4a_depth_to_pcl = k4aTransformation.depth_image_to_point_cloud(image_k4a_depth_to_color, K4A_CALIBRATION_TYPE_COLOR);
 
         image_cv_xyz = cv::Mat(image_k4a_depth_to_pcl.get_height_pixels(), image_k4a_depth_to_pcl.get_width_pixels(), CV_16SC3,
                                (void *)image_k4a_depth_to_pcl.get_buffer(), static_cast<size_t>(image_k4a_depth_to_pcl.get_stride_bytes()));
@@ -150,6 +150,46 @@ void K4a::Depth_With_Mask(cv::Mat &image_cv_depth, yolo::BoxArray &objs)
     }
 }
 
+void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, cv::Mat &image_cv_depth, yolo::BoxArray &objs)
+{
+    cloud.clear();
+
+    if (objs.empty())
+        return;
+    yolo::Box boxBest = objs[0];
+    for (auto &box : objs)
+    {
+        if (box.confidence > boxBest.confidence)
+            boxBest = box;
+    }
+
+    k4a::image xyzImage{nullptr};
+    int width = k4aCalibration.color_camera_calibration.resolution_width;
+    int height = k4aCalibration.color_camera_calibration.resolution_height;
+
+    xyzImage = image_k4a_depth_to_pcl;
+    auto *xyzImageData = (int16_t *)(void *)xyzImage.get_buffer();
+    for (int u = boxBest.left; u < boxBest.right; u++)
+    {
+        for (int v = boxBest.top; v < boxBest.bottom; v++)
+        {
+            int i = v * width + u;
+            if (boxBest.seg->data[u, v] == 0)
+            {
+                pcl::PointXYZ point;
+                point.x = xyzImageData[3 * i + 0];
+                point.y = xyzImageData[3 * i + 1];
+                point.z = xyzImageData[3 * i + 2];
+                // std::cout << point.x << "," << point.y << "," << point.z << std::endl;
+                cloud.push_back(point);
+            }
+        }
+    }
+    std::cout << "size:" << cloud.size() << std::endl;
+
+    xyzImage.reset();
+}
+
 void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArray &objs)
 {
     cloud.clear();
@@ -176,11 +216,13 @@ void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArra
                     float x = (u - color_intrinsics.intrinsics.parameters.param.cx) * depth_value / color_intrinsics.intrinsics.parameters.param.fx;
                     float y = (v - color_intrinsics.intrinsics.parameters.param.cy) * depth_value / color_intrinsics.intrinsics.parameters.param.fy;
                     float z = depth_value;
+                    // std::cout << "x=" << x << ",y=" << y << ",z=" << z << std::endl;
                     cloud.push_back(pcl::PointXYZ(x, y, z));
                 }
             }
         }
     }
+    std::cout << "size:" << cloud.size() << std::endl;
 }
 
 K4a::K4a()

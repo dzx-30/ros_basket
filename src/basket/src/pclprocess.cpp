@@ -45,21 +45,25 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     // 为提取圆点
     ransac.getInliers(ransac_inliers);
     inliers->indices = ransac_inliers;
+    if (inliers->indices.empty())
+    {
+        return;
+    }
     extract.setInputCloud(cloud_ptr);
     extract.setIndices(inliers);
     extract.setNegative(false);
     extract.filter(*cloud_ptr);
 
     // std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
-    // std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
+    std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
 
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 
     double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] * 1000 - 287.01;
-    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 - 324;
+    float x = circle_center.center[0] * 1000 + 287.01;
+    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + 324;
 
     std::cout << "x = " << x << " , y = " << y << std::endl;
 

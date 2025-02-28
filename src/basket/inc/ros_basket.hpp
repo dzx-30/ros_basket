@@ -36,6 +36,10 @@ private:
     std::shared_ptr<cv::Mat> depth_rs_ptr = std::make_shared<cv::Mat>();
     std::shared_ptr<yolo::BoxArray> objs_ptr = std::make_shared<yolo::BoxArray>();
 
+    ros::Publisher pub_center;
+    sensor_msgs::PointCloud2 center_msg;
+    pcl::PointCloud<pcl::PointXYZ> center;
+
 public:
     std::shared_ptr<yolo::Infer> yol;
 
