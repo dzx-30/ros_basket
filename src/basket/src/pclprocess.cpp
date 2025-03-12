@@ -17,6 +17,7 @@ void PclProcess::Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ
     sor.filter(*cloud_ptr);
 }
 
+// TODO:delete
 void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
 {
 
@@ -62,12 +63,12 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] * 1000 + 287.01;
+    float x = circle_center.center[0] * 1000 + 487.01;
     float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + 324;
 
     std::cout << "x = " << x << " , y = " << y << std::endl;
 
-    if (coeff[3] < 0.24 && coeff[3] > 0.19)
+    // if (coeff[3] < 0.24 && coeff[3] > 0.19)
     {
         uint8_t data[13] = {0};
         data[0] = 0xff;

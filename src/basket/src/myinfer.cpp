@@ -13,7 +13,7 @@ void Yolo::Single_Inference(cv::Mat &image, yolo::BoxArray &objs_out, std::share
 
   auto End = std::chrono::system_clock::now();
   auto Duration = std::chrono::duration_cast<std::chrono::microseconds>(End - Start);
-  std::cout << "Infer Duration: " << double(Duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
+  // std::cout << "Infer Duration: " << double(Duration.count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
 
   objs_out = objs;
 }

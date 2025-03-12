@@ -13,11 +13,11 @@ int main(int argc, char *argv[])
 
     while (ros::ok())
     {
-        TIMESTART
+        // TIMESTART
         RosBasket.K4a_Basket_Get();
         ros::spinOnce();
-        TIMEEND
-        DURATION
+        // TIMEEND
+        // DURATION
     }
 
     return 0;

@@ -50,6 +50,8 @@ private:
     cv::Mat mask, mask_color, mask_depth;
     cv::Mat image_mask_binary;
     cv::Mat image_cv_xyz;
+    cv::Mat hsv;
+    cv::Mat imgThresholded;
 
 public:
     k4a::image image_k4a_depth_to_color, image_k4a_depth_to_pcl;

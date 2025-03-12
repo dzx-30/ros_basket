@@ -37,10 +37,42 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     pclprocess.Vg_Filter(0.05, cloud_in);
     pclprocess.Sor_Filter(50, 0.1, cloud_in);
 
+    // TODO:closest
+    if (cloud_in->size() != 0)
+    {
+        std::sort(cloud_in->begin(), cloud_in->end(), [](const auto &a, const auto &b)
+                  { return (a.x * a.x + a.y * a.y + a.z * a.z) < (b.x * b.x + b.y * b.y + b.z * b.z); });
+        float x = 0, y = 0, z = 0;
+        for (int i = 0; i < 10; i++)
+        {
+            x += cloud_in->points[i].x;
+            y += cloud_in->points[i].y;
+            z += cloud_in->points[i].z;
+        }
+        x = x / 10;
+        y = y / 10;
+        z = z / 10;
+        double degree2 = 35.0;
+        double radians2 = degree2 * M_PI / 180.0;
+        x = x * 1000 + 487.01;
+        y = y * sin(radians2) * 1000 + z * cos(radians2) * 1000 + 324;
+        float l = sqrt(x * x + y * y);
+        int i = 0;
+        if (x > 0)
+            i = 1;
+        else
+            i = -1;
+        x = x + i * 225 * x / l;
+        y = y + 225 * y / l;
+        std::cout << "closest.x = " << x << " , closest.y = " << y << " , closest.z = " << z << std::endl;
+    }
+
+    // 圆质心
     Eigen::Vector4f centroid;
     pcl::compute3DCentroid(*cloud_in, centroid);
     std::cout << "centerX : " << centroid[0] << " , centerY : " << centroid[1] << " , centerZ : " << centroid[2] << std::endl;
 
+    // 拟合圆
     pclprocess.Circle_Extract(cloud_in, coeff);
     Draw_Circle(pclprocess.circle_center);
 
@@ -59,35 +91,6 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     pcl::toROSMsg(*cloud_in, basket_msg);
     basket_msg.header.frame_id = "odom";
     pub_basket.publish(basket_msg);
-}
-
-void RosBasket::Draw_Circle(Eigen::VectorXf &coeff)
-{
-    if (coeff.size() < 3)
-    {
-        std::cerr << "Error: coeff size is less than 3!" << std::endl;
-        return;
-    }
-    float fx = k4a.color_intrinsics.intrinsics.parameters.param.fx;
-    float fy = k4a.color_intrinsics.intrinsics.parameters.param.fy;
-    float cx = k4a.color_intrinsics.intrinsics.parameters.param.cx;
-    float cy = k4a.color_intrinsics.intrinsics.parameters.param.cy;
-
-    int u = static_cast<int>(fx * coeff[0] / coeff[2] + cx);
-    int v = static_cast<int>(fy * coeff[1] / coeff[2] + cy);
-
-    if (u >= 0 && u < k4a.image_k4a_depth_to_color.get_width_pixels() &&
-        v >= 0 && v < k4a.image_k4a_depth_to_color.get_height_pixels())
-    {
-
-        std::cout << "Projected pixel coordinates: (" << u << ", " << v << ")" << std::endl;
-    }
-    else
-    {
-        std::cout << "Point outside image bounds." << std::endl;
-    }
-
-    cv::circle(*color_k4a_ptr, cv::Point(u, v), 5, cv::Scalar(0, 255, 0), -1);
 }
 
 void RosBasket::Draw_Circle(Circle3D circle_center)

@@ -41,7 +41,7 @@ void K4a::Configuration()
 {
     config = K4A_DEVICE_CONFIG_INIT_DISABLE_ALL;
     config.color_format = K4A_IMAGE_FORMAT_COLOR_BGRA32;
-    config.color_resolution = K4A_COLOR_RESOLUTION_720P;
+    config.color_resolution = K4A_COLOR_RESOLUTION_1536P;
     config.depth_mode = K4A_DEPTH_MODE_NFOV_2X2BINNED;
     config.camera_fps = K4A_FRAMES_PER_SECOND_30;
     config.synchronized_images_only = true;
@@ -71,6 +71,9 @@ void K4a::Image_to_Cv(cv::Mat &image_cv_color, cv::Mat &image_cv_depth)
 
         image_cv_color = cv::Mat(image_k4a_color.get_height_pixels(), image_k4a_color.get_width_pixels(), CV_8UC4, image_k4a_color.get_buffer());
         cv::cvtColor(image_cv_color, image_cv_color, cv::COLOR_BGRA2BGR);
+
+        cvtColor(image_cv_color, hsv, cv::COLOR_BGR2HSV);
+        cv::inRange(hsv, cv::Scalar(0, 43, 46), cv::Scalar(34, 255, 255), imgThresholded);
 
         image_cv_depth = cv::Mat(image_k4a_depth_to_color.get_height_pixels(), image_k4a_depth_to_color.get_width_pixels(), CV_16U, image_k4a_depth_to_color.get_buffer());
         image_cv_depth.convertTo(image_cv_depth, CV_8U);
@@ -150,6 +153,7 @@ void K4a::Depth_With_Mask(cv::Mat &image_cv_depth, yolo::BoxArray &objs)
     }
 }
 
+// TODO:delete
 void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, cv::Mat &image_cv_depth, yolo::BoxArray &objs)
 {
     cloud.clear();
@@ -208,21 +212,23 @@ void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArra
     {
         for (int u = boxBest.left; u < boxBest.right; u++)
         {
-            if (boxBest.seg->data[u, v] == 0)
+            // if (boxBest.seg->data[u, v] == 0)
             {
-                float depth_value = static_cast<float>(depth_data[v * image_k4a_depth_to_color.get_width_pixels() + u] / 1000.0);
-                if (depth_value != 0)
+                if (imgThresholded.at<uchar>(u, v) == 0)
                 {
-                    float x = (u - color_intrinsics.intrinsics.parameters.param.cx) * depth_value / color_intrinsics.intrinsics.parameters.param.fx;
-                    float y = (v - color_intrinsics.intrinsics.parameters.param.cy) * depth_value / color_intrinsics.intrinsics.parameters.param.fy;
-                    float z = depth_value;
-                    // std::cout << "x=" << x << ",y=" << y << ",z=" << z << std::endl;
-                    cloud.push_back(pcl::PointXYZ(x, y, z));
+                    float depth_value = static_cast<float>(depth_data[v * image_k4a_depth_to_color.get_width_pixels() + u] / 1000.0);
+                    if (depth_value != 0)
+                    {
+                        float x = (u - color_intrinsics.intrinsics.parameters.param.cx) * depth_value / color_intrinsics.intrinsics.parameters.param.fx;
+                        float y = (v - color_intrinsics.intrinsics.parameters.param.cy) * depth_value / color_intrinsics.intrinsics.parameters.param.fy;
+                        float z = depth_value;
+                        // std::cout << "x=" << x << ",y=" << y << ",z=" << z << std::endl;
+                        cloud.push_back(pcl::PointXYZ(x, y, z));
+                    }
                 }
             }
         }
     }
-    std::cout << "size:" << cloud.size() << std::endl;
 }
 
 K4a::K4a()
