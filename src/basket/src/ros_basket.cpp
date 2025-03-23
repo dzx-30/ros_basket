@@ -17,9 +17,7 @@ void RosBasket::K4a_Basket_Get()
     k4a.Image_to_Cv(*color_k4a_ptr, *depth_k4a_ptr);
     yolo.Single_Inference(*color_k4a_ptr, *objs_ptr, yol);
     k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *objs_ptr);
-    // k4a.Value_Mask_to_Pcl(*cloud_seg_ptr, *depth_k4a_ptr, *objs_ptr);
     k4a.Color_With_Mask(*color_k4a_ptr, *objs_ptr);
-    // k4a.Depth_With_Mask(*depth_k4a_ptr, *objs_ptr);
 
     std::vector<int> valid_indices;
     pcl::removeNaNFromPointCloud(*cloud_seg_ptr, *cloud_seg_ptr, valid_indices);
@@ -34,11 +32,12 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     cloud_in = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     Eigen::VectorXf coeff;
     pcl::fromROSMsg(*msg, *cloud_in);
-    pclprocess.Vg_Filter(0.05, cloud_in);
-    pclprocess.Sor_Filter(50, 0.1, cloud_in);
+    pclprocess.Vg_Filter(leafsize, cloud_in);
+    pclprocess.Sor_Filter(amount, sordistance, cloud_in);
+    // pclprocess.height(cloud_in);
 
-    // TODO:closest
-    if (cloud_in->size() != 0)
+    // TODO:最近点
+    if (cloud_in->size() >= 10)
     {
         std::sort(cloud_in->begin(), cloud_in->end(), [](const auto &a, const auto &b)
                   { return (a.x * a.x + a.y * a.y + a.z * a.z) < (b.x * b.x + b.y * b.y + b.z * b.z); });
@@ -54,23 +53,29 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
         z = z / 10;
         double degree2 = 35.0;
         double radians2 = degree2 * M_PI / 180.0;
-        x = x * 1000 + 487.01;
+        x = x * 1000 + 287.01;
         y = y * sin(radians2) * 1000 + z * cos(radians2) * 1000 + 324;
         float l = sqrt(x * x + y * y);
-        int i = 0;
-        if (x > 0)
-            i = 1;
-        else
-            i = -1;
+        int i = 1;
+        // if (x > 0)
+        //     i = 1;
+        // else
+        //     i = -1;
         x = x + i * 225 * x / l;
         y = y + 225 * y / l;
+        // TODO:方法1：最近点得到圆心
         std::cout << "closest.x = " << x << " , closest.y = " << y << " , closest.z = " << z << std::endl;
     }
 
-    // 圆质心
+    // TODO:圆质心
     Eigen::Vector4f centroid;
     pcl::compute3DCentroid(*cloud_in, centroid);
-    std::cout << "centerX : " << centroid[0] << " , centerY : " << centroid[1] << " , centerZ : " << centroid[2] << std::endl;
+    double degree = 35.0;
+    double radians = degree * M_PI / 180.0;
+    float x = centroid[0] * 1000 + 287.01;
+    float y = centroid[1] * sin(radians) * 1000 + centroid[2] * cos(radians) * 1000 + 324;
+    // TODO:方法2：计算质心得到圆心
+    std::cout << "centroidX : " << x << " , centroidY : " << y << " , centroidZ : " << centroid[2] << std::endl;
 
     // 拟合圆
     pclprocess.Circle_Extract(cloud_in, coeff);

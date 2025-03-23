@@ -9,8 +9,6 @@
 #include <pcl/io/ply_io.h>
 
 #include <k4a/k4a.hpp>
-#include <librealsense2/rs.hpp>
-#include <librealsense2/rsutil.h>
 
 #include <iostream>
 #include <unistd.h>
@@ -44,7 +42,7 @@ private:
     k4a_calibration_camera_t depth_intrinsics;
     k4a::calibration k4aCalibration;
     k4a::transformation k4aTransformation;
-    std::string output_dir = "/home/dzx/yolov8/train/datasets/Basket/";
+    std::string output_dir = "/home/lush/Documents/yolov8/train/datasets/Basket/";
     std::string filename;
     int frame_count = 0;
     cv::Mat mask, mask_color, mask_depth;

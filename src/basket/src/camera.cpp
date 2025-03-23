@@ -73,7 +73,7 @@ void K4a::Image_to_Cv(cv::Mat &image_cv_color, cv::Mat &image_cv_depth)
         cv::cvtColor(image_cv_color, image_cv_color, cv::COLOR_BGRA2BGR);
 
         cvtColor(image_cv_color, hsv, cv::COLOR_BGR2HSV);
-        cv::inRange(hsv, cv::Scalar(0, 43, 46), cv::Scalar(34, 255, 255), imgThresholded);
+        cv::inRange(hsv, cv::Scalar(156, 43, 46), cv::Scalar(180, 255, 255), imgThresholded);
 
         image_cv_depth = cv::Mat(image_k4a_depth_to_color.get_height_pixels(), image_k4a_depth_to_color.get_width_pixels(), CV_16U, image_k4a_depth_to_color.get_buffer());
         image_cv_depth.convertTo(image_cv_depth, CV_8U);
@@ -184,7 +184,6 @@ void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, cv::Mat &imag
                 point.x = xyzImageData[3 * i + 0];
                 point.y = xyzImageData[3 * i + 1];
                 point.z = xyzImageData[3 * i + 2];
-                // std::cout << point.x << "," << point.y << "," << point.z << std::endl;
                 cloud.push_back(point);
             }
         }
@@ -222,7 +221,6 @@ void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArra
                         float x = (u - color_intrinsics.intrinsics.parameters.param.cx) * depth_value / color_intrinsics.intrinsics.parameters.param.fx;
                         float y = (v - color_intrinsics.intrinsics.parameters.param.cy) * depth_value / color_intrinsics.intrinsics.parameters.param.fy;
                         float z = depth_value;
-                        // std::cout << "x=" << x << ",y=" << y << ",z=" << z << std::endl;
                         cloud.push_back(pcl::PointXYZ(x, y, z));
                     }
                 }

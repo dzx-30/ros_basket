@@ -18,6 +18,7 @@
 #include <cmath>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/features/normal_3d.h>
+#include <pcl/filters/conditional_removal.h>
 
 #include <iostream>
 #include <string>
@@ -27,6 +28,9 @@
 #include <unsupported/Eigen/NonLinearOptimization>
 
 #include "uart.hpp"
+
+extern float rsdistance;
+extern int rsmax;
 
 #define TIMESTART auto Start = std::chrono::system_clock::now();
 #define TIMEEND auto End = std::chrono::system_clock::now();
@@ -95,6 +99,8 @@ public:
     void Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
 
     void Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
+
+    void height(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
 
     void Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, Eigen::VectorXf &coeff);
 

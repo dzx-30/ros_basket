@@ -6,6 +6,7 @@ void PclProcess::Vg_Filter(float leafsize, pcl::PointCloud<pcl::PointXYZ>::Ptr c
     vg.setInputCloud(cloud_ptr);
     vg.setLeafSize(leafsize, leafsize, leafsize);
     vg.filter(*cloud_ptr);
+    std::cout << cloud_ptr->size() << std::endl;
 }
 
 void PclProcess::Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
@@ -27,6 +28,32 @@ void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::Point
     ror.filter(*cloud_ptr);
 }
 
+// TODO:效果并不好，不确定是否因为理论高度限制与实际高度不符合
+void PclProcess::height(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
+{
+    double degree = 35.0;
+    double radians = degree * M_PI / 180.0;
+
+    for (int i = 0; i < cloud_ptr->size(); i++)
+    {
+        float x = cloud_ptr->points[i].x * 1000 + 487.01;
+        float y = cloud_ptr->points[i].y * sin(radians) * 1000 + cloud_ptr->points[i].z * cos(radians) * 1000 + 324;
+        float z = cloud_ptr->points[i].z * sin(radians) * 1000 + cloud_ptr->points[i].y * cos(radians) * 1000 + 839.93;
+        cloud_ptr->points[i].x = x / 1000;
+        cloud_ptr->points[i].y = y / 1000;
+        cloud_ptr->points[i].z = z / 1000;
+    }
+    std::cout << cloud_ptr->size() << std::endl;
+
+    pcl::ConditionAnd<pcl::PointXYZ>::Ptr range_cond(new pcl::ConditionAnd<pcl::PointXYZ>());
+    range_cond->addComparison(pcl::FieldComparison<pcl::PointXYZ>::ConstPtr(new pcl::FieldComparison<pcl::PointXYZ>("z", pcl::ComparisonOps::GT, 2.23)));
+    range_cond->addComparison(pcl::FieldComparison<pcl::PointXYZ>::ConstPtr(new pcl::FieldComparison<pcl::PointXYZ>("z", pcl::ComparisonOps::LT, 2.53)));
+    pcl::ConditionalRemoval<pcl::PointXYZ> cr;
+    cr.setCondition(range_cond);
+    cr.setInputCloud(cloud_ptr);
+    cr.filter(*cloud_ptr);
+}
+
 void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, Eigen::VectorXf &coeff)
 {
     if (cloud_ptr->size() < 20)
@@ -39,8 +66,8 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     pcl::PointIndices::Ptr inliers(new pcl::PointIndices);
     pcl::RandomSampleConsensus<pcl::PointXYZ> ransac(circle3d);
     std::vector<int> ransac_inliers;
-    ransac.setDistanceThreshold(0.2);
-    ransac.setMaxIterations(10000);
+    ransac.setDistanceThreshold(rsdistance);
+    ransac.setMaxIterations(rsmax);
     ransac.computeModel();
     ransac.getModelCoefficients(coeff);
     // 为提取圆点
@@ -55,34 +82,31 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     extract.setNegative(false);
     extract.filter(*cloud_ptr);
 
-    // std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
-    std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
-
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 
     double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] * 1000 + 487.01;
+    float x = circle_center.center[0] * 1000 + 287.01;
     float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + 324;
 
+    // float x = circle_center.center[0]*1000.0;
+    // float y = circle_center.center[1]*1000.0;
+    // TODO:方法3：拟合圆得到圆心
     std::cout << "x = " << x << " , y = " << y << std::endl;
 
-    // if (coeff[3] < 0.24 && coeff[3] > 0.19)
+    uint8_t data[13] = {0};
+    data[0] = 0xff;
+    data[1] = 0xfe;
+    memcpy(&data[2], &x, sizeof(float));
+    memcpy(&data[6], &y, sizeof(float));
+    for (int i = 2; i < 10; i++)
     {
-        uint8_t data[13] = {0};
-        data[0] = 0xff;
-        data[1] = 0xfe;
-        memcpy(&data[2], &x, sizeof(float));
-        memcpy(&data[6], &y, sizeof(float));
-        for (int i = 2; i < 10; i++)
-        {
-            data[10] += data[i];
-        }
-        data[11] = 0xaa;
-        data[12] = 0xdd;
-        uart.UART_SEND(data, 13);
+        data[10] += data[i];
     }
+    data[11] = 0xaa;
+    data[12] = 0xdd;
+    uart.UART_SEND(data, 13);
 }
 
 Circle3D PclProcess::fitCircleLM(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, double radius, Eigen::VectorXf &coeff)
@@ -96,8 +120,6 @@ Circle3D PclProcess::fitCircleLM(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, 
 
     Circle3D circle;
     circle.center = Eigen::Vector3d(x(0), x(1), x(2));
-
-    std::cout << "LM : x = " << circle.center[0] << " , LM : y = " << circle.center[1] << " , LM : z = " << circle.center[2] << std::endl;
 
     return circle;
 }

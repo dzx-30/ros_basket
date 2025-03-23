@@ -1,0 +1,13 @@
+<launch>
+    <node pkg="basket" type="basket_node" name="basket_node"/>
+    <!-- 设置体素体边长 -->
+    <param name="leafsize" type="float" value="0.05"/>
+    <!-- 设置去离群领域点数量 -->
+    <param name="amount" type="int" value="50"/>
+    <!-- 设置去离群距离阈值 -->
+    <param name="sordistance" type="float" value="0.1"/>
+    <!-- 设置 RANSAC 算法的距离阈值，用于判断点是否为内点 -->
+    <param name="rsdistance" type="float" value="0.2"/> 
+    <!-- 设置 RANSAC 算法的最大迭代次数 -->
+    <param name="rsmax" type="float" value="10000"/> 
+</launch>

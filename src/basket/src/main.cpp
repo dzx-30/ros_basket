@@ -2,6 +2,11 @@
 #include "../inc/myinfer.hpp"
 #include "../inc/pclprocess.hpp"
 #include "../inc/ros_basket.hpp"
+float leafsize;
+int amount;
+float sordistance;
+float rsdistance;
+int rsmax;
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +14,14 @@ int main(int argc, char *argv[])
     ros::NodeHandle nh;
     ros::Rate loop_rate(1);
     RosBasket RosBasket(nh);
-    RosBasket.yol = yolo::load("/home/dzx/best.engine", yolo::Type::V8Seg);
+    nh.param<float>("leafsize", leafsize, 0.05);
+    nh.param<int>("amount", amount, 50);
+    nh.param<float>("std", sordistance, 0.1);
+    nh.param<float>("rsdistance", rsdistance, 0.2);
+    nh.param<int>("rsmax", rsmax, 10000);
+
+    // RosBasket.yol = yolo::load("/home/lush/best.engine", yolo::Type::V8);
+    RosBasket.yol = yolo::load("/home/lush/best.engine", yolo::Type::V8Seg);
 
     while (ros::ok())
     {

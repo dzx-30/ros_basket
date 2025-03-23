@@ -207,7 +207,7 @@ include_directories(
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
-set(TENSORRT_DIR "/home/dzx/install/TensorRT-8.6.1.6")
+set(TENSORRT_DIR "/home/lush/install/TensorRT-8.6.1.6")
 
 find_package(Threads REQUIRED)
 find_package(OpenCV REQUIRED)
@@ -231,7 +231,7 @@ target_link_libraries(basket_node
     ${OpenCV_LIBS}
     ${PCL_LIBRARIES}
     k4a
-    /home/dzx/Documents/basket/src/basket/lib/libyolo.a
+    /home/lush/Documents/basket/src/basket/lib/libyolo.a
     cuda cublas cudart cudnn
     ${TENSORRT_DIR}/lib/libnvinfer.so
     Threads::Threads

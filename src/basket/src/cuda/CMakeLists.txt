@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 project(cuda)
 
-set(TENSORRT_DIR "/home/dzx/install/TensorRT-8.6.1.6")
+set(TENSORRT_DIR "/home/lush/install/TensorRT-8.6.1.6")
 
 file(GLOB_RECURSE YOLO_SOURCES "*.cu")
 message(STATUS "YOLO_SOURCES: ${YOLO_SOURCES}")
