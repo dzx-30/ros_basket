@@ -17,15 +17,6 @@ void PclProcess::Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ
     sor.filter(*cloud_ptr);
 }
 
-void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
-{
-
-    ror.setInputCloud(cloud_ptr);
-    ror.setRadiusSearch(radius);
-    ror.setMinNeighborsInRadius(amount);
-    ror.filter(*cloud_ptr);
-}
-
 void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, Eigen::VectorXf &coeff)
 {
     if (cloud_ptr->size() < 20)
@@ -50,16 +41,12 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
     extract.setNegative(false);
     extract.filter(*cloud_ptr);
 
-    // std::cout << "circle cloud: " << cloud_ptr->size() << std::endl;
-    // std::cout << "RS : x = " << coeff[0] << ", RS  : y = " << coeff[1] << ", RS : z = " << coeff[2] << ", RS : r = " << coeff[3] << std::endl;
-
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 
-    double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] * 1000 - 287.01;
-    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 - 324;
+    float x = circle_center.center[0] * 1000 + OX;
+    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + OY;
 
     std::cout << "x = " << x << " , y = " << y << std::endl;
 
@@ -91,8 +78,6 @@ Circle3D PclProcess::fitCircleLM(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, 
 
     Circle3D circle;
     circle.center = Eigen::Vector3d(x(0), x(1), x(2));
-
-    // std::cout << "LM : x = " << circle.center[0] << " , LM : y = " << circle.center[1] << " , LM : z = " << circle.center[2] << std::endl;
 
     return circle;
 }

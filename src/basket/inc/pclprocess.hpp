@@ -28,6 +28,11 @@
 
 #include "uart.hpp"
 
+#define degree 25
+#define OX -166.93
+#define OY -12.91
+#define OZ 47.82
+
 #define TIMESTART auto Start = std::chrono::system_clock::now();
 #define TIMEEND auto End = std::chrono::system_clock::now();
 #define DURATION std::cout << "Duration: " << double(std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
@@ -83,7 +88,6 @@ class PclProcess
 private:
     pcl::VoxelGrid<pcl::PointXYZ> vg;
     pcl::StatisticalOutlierRemoval<pcl::PointXYZ> sor;
-    pcl::RadiusOutlierRemoval<pcl::PointXYZ> ror;
 
 public:
     Circle3D circle_center;
@@ -94,13 +98,11 @@ public:
 
     void Sor_Filter(int amount, float std, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
 
-    void Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr);
-
     void Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, Eigen::VectorXf &coeff);
 
     Circle3D fitCircleLM(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, double radius, Eigen::VectorXf &coeff);
 
-    void Draw_Circle(Eigen::VectorXf &coeff);
+    // void Draw_Circle(Eigen::VectorXf &coeff);
 
     PclProcess();
 

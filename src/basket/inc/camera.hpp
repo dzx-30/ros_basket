@@ -31,8 +31,6 @@
 #define TIMEEND auto End = std::chrono::system_clock::now();
 #define DURATION std::cout << "Duration: " << double(std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;
 
-#define MIN_DISTANCE 0.5
-
 class K4a
 {
 private:
@@ -44,9 +42,6 @@ private:
     k4a_calibration_camera_t depth_intrinsics;
     k4a::calibration k4aCalibration;
     k4a::transformation k4aTransformation;
-    std::string output_dir = "/home/nf/yolov8/train/datasets/Basket/";
-    std::string filename;
-    int frame_count = 0;
     cv::Mat mask, mask_color, mask_depth;
     cv::Mat image_mask_binary;
     cv::Mat image_cv_xyz;

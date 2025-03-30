@@ -23,7 +23,7 @@ void RosBasket::K4a_Basket_Get()
     pcl::removeNaNFromPointCloud(*cloud_seg_ptr, *cloud_seg_ptr, valid_indices);
     std::cout << "Global PointCloud:" << cloud_seg_ptr->size() << std::endl;
     pcl::toROSMsg(*cloud_seg_ptr, cloud_msg);
-    cloud_msg.header.frame_id = "odom";
+    cloud_msg.header.frame_id = "map";
     pub_cloud.publish(cloud_msg);
 }
 
@@ -32,27 +32,27 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     cloud_in = pcl::PointCloud<pcl::PointXYZ>::Ptr(new pcl::PointCloud<pcl::PointXYZ>());
     Eigen::VectorXf coeff;
     pcl::fromROSMsg(*msg, *cloud_in);
-    pclprocess.Vg_Filter(0.03, cloud_in);
+    pclprocess.Vg_Filter(0.05, cloud_in);
     pclprocess.Sor_Filter(50, 0.01, cloud_in);
     pclprocess.Circle_Extract(cloud_in, coeff);
-    Draw_Circle(pclprocess.circle_center);
-    cv::imshow("Color Seg", *(color_k4a_ptr));
-    cv::waitKey(1);
+    // Draw_Circle(pclprocess.circle_center);
+    // cv::imshow("Color Seg", *(color_k4a_ptr));
+    // cv::waitKey(1);
 
-    pcl::toROSMsg(*cloud_in, basket_msg);
-    basket_msg.header.frame_id = "odom";
-    pub_basket.publish(basket_msg);
+    // pcl::toROSMsg(*cloud_in, basket_msg);
+    // basket_msg.header.frame_id = "map";
+    // pub_basket.publish(basket_msg);
 }
 
-void RosBasket::Draw_Circle(Circle3D circle_center)
-{
-    float fx = k4a.color_intrinsics.intrinsics.parameters.param.fx;
-    float fy = k4a.color_intrinsics.intrinsics.parameters.param.fy;
-    float cx = k4a.color_intrinsics.intrinsics.parameters.param.cx;
-    float cy = k4a.color_intrinsics.intrinsics.parameters.param.cy;
+// void RosBasket::Draw_Circle(Circle3D circle_center)
+// {
+//     float fx = k4a.color_intrinsics.intrinsics.parameters.param.fx;
+//     float fy = k4a.color_intrinsics.intrinsics.parameters.param.fy;
+//     float cx = k4a.color_intrinsics.intrinsics.parameters.param.cx;
+//     float cy = k4a.color_intrinsics.intrinsics.parameters.param.cy;
 
-    int u = static_cast<int>(fx * circle_center.center[0] / circle_center.center[2] + cx);
-    int v = static_cast<int>(fy * circle_center.center[1] / circle_center.center[2] + cy);
+//     int u = static_cast<int>(fx * circle_center.center[0] / circle_center.center[2] + cx);
+//     int v = static_cast<int>(fy * circle_center.center[1] / circle_center.center[2] + cy);
 
-    cv::circle(*color_k4a_ptr, cv::Point(u, v), 5, cv::Scalar(0, 255, 0), -1);
-}
+//     cv::circle(*color_k4a_ptr, cv::Point(u, v), 5, cv::Scalar(0, 255, 0), -1);
+// }

@@ -115,41 +115,6 @@ void K4a::Color_With_Mask(cv::Mat &image_cv_color, yolo::BoxArray &objs)
     }
 }
 
-void K4a::Depth_With_Mask(cv::Mat &image_cv_depth, yolo::BoxArray &objs)
-{
-    if (objs.empty())
-        return;
-
-    yolo::Box boxBest = objs[0];
-    for (auto &box : objs)
-    {
-        if (box.confidence > boxBest.confidence)
-            boxBest = box;
-    }
-
-    if (boxBest.left >= 0 && boxBest.right < image_cv_depth.cols && boxBest.top >= 0 && boxBest.bottom <= image_cv_depth.rows)
-    {
-        uint8_t b, g, r;
-        std::tie(b, g, r) = yolo::random_color(boxBest.class_label);
-        cv::rectangle(image_cv_depth, cv::Point(boxBest.left, boxBest.top), cv::Point(boxBest.right, boxBest.bottom),
-                      cv::Scalar(b, g, r), 5);
-        auto name = labels[boxBest.class_label];
-        auto caption = cv::format("%s %.2f", name, boxBest.confidence);
-        int width = cv::getTextSize(caption, 0, 1, 2, nullptr).width + 10;
-        cv::rectangle(image_cv_depth, cv::Point(boxBest.left - 3, boxBest.top - 33),
-                      cv::Point(boxBest.left + width, boxBest.top), cv::Scalar(b, g, r), -1);
-        cv::putText(image_cv_depth, caption, cv::Point(boxBest.left, boxBest.top - 5), 0, 1, cv::Scalar::all(0), 2, 16);
-        if (boxBest.seg)
-        {
-            cv::Mat mask = cv::Mat(boxBest.seg->height, boxBest.seg->width, CV_8U, boxBest.seg->data);
-            mask.convertTo(mask, CV_8UC1);
-            cv::resize(mask, mask, cv::Size(boxBest.right - boxBest.left, boxBest.bottom - boxBest.top), 0, 0, cv::INTER_LINEAR);
-            cv::addWeighted(image_cv_depth(cv::Rect(boxBest.left, boxBest.top, boxBest.right - boxBest.left, boxBest.bottom - boxBest.top)), 1.0, mask, 1.0, 0.0, mask);
-            mask.copyTo(image_cv_depth(cv::Rect(boxBest.left, boxBest.top, boxBest.right - boxBest.left, boxBest.bottom - boxBest.top)));
-        }
-    }
-}
-
 void K4a::Value_Mask_to_Pcl(pcl::PointCloud<pcl::PointXYZ> &cloud, yolo::BoxArray &objs)
 {
     cloud.clear();
