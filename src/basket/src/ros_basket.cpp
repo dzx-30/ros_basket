@@ -23,7 +23,7 @@ void RosBasket::K4a_Basket_Get()
     pcl::removeNaNFromPointCloud(*cloud_seg_ptr, *cloud_seg_ptr, valid_indices);
     std::cout << "Global PointCloud:" << cloud_seg_ptr->size() << std::endl;
     pcl::toROSMsg(*cloud_seg_ptr, cloud_msg);
-    cloud_msg.header.frame_id = "odom";
+    cloud_msg.header.frame_id = "map";
     pub_cloud.publish(cloud_msg);
 }
 
@@ -51,10 +51,9 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
         x = x / 10;
         y = y / 10;
         z = z / 10;
-        double degree2 = 35.0;
-        double radians2 = degree2 * M_PI / 180.0;
-        x = x * 1000 + 287.01;
-        y = y * sin(radians2) * 1000 + z * cos(radians2) * 1000 + 324;
+        double radians2 = degree * M_PI / 180.0;
+        x = x * 1000 + OX;
+        y = y * sin(radians2) * 1000 + z * cos(radians2) * 1000 + OY;
         float l = sqrt(x * x + y * y);
         int i = 1;
         // if (x > 0)
@@ -70,10 +69,9 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     // TODO:圆质心
     Eigen::Vector4f centroid;
     pcl::compute3DCentroid(*cloud_in, centroid);
-    double degree = 35.0;
     double radians = degree * M_PI / 180.0;
-    float x = centroid[0] * 1000 + 287.01;
-    float y = centroid[1] * sin(radians) * 1000 + centroid[2] * cos(radians) * 1000 + 324;
+    float x = centroid[0] * 1000 + OX;
+    float y = centroid[1] * sin(radians) * 1000 + centroid[2] * cos(radians) * 1000 + OY;
     // TODO:方法2：计算质心得到圆心
     std::cout << "centroidX : " << x << " , centroidY : " << y << " , centroidZ : " << centroid[2] << std::endl;
 
@@ -86,7 +84,7 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     {
         center.push_back(pcl::PointXYZ(pclprocess.circle_center.center[0], pclprocess.circle_center.center[1], pclprocess.circle_center.center[2]));
         pcl::toROSMsg(center, center_msg);
-        center_msg.header.frame_id = "odom";
+        center_msg.header.frame_id = "map";
         pub_center.publish(center_msg);
     }
 
@@ -94,7 +92,7 @@ void RosBasket::clb(const sensor_msgs::PointCloud2::ConstPtr &msg)
     cv::waitKey(1);
 
     pcl::toROSMsg(*cloud_in, basket_msg);
-    basket_msg.header.frame_id = "odom";
+    basket_msg.header.frame_id = "map";
     pub_basket.publish(basket_msg);
 }
 

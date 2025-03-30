@@ -32,6 +32,11 @@
 extern float rsdistance;
 extern int rsmax;
 
+#define degree 25
+#define OX -166.93
+#define OY -12.91
+#define OZ 47.82
+
 #define TIMESTART auto Start = std::chrono::system_clock::now();
 #define TIMEEND auto End = std::chrono::system_clock::now();
 #define DURATION std::cout << "Duration: " << double(std::chrono::duration_cast<std::chrono::microseconds>(End - Start).count()) * std::chrono::microseconds::period::num / std::chrono::microseconds::period::den << "s" << std::endl;

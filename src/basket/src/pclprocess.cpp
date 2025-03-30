@@ -31,14 +31,13 @@ void PclProcess::Ror_Filter(int amount, float radius, pcl::PointCloud<pcl::Point
 // TODO:效果并不好，不确定是否因为理论高度限制与实际高度不符合
 void PclProcess::height(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr)
 {
-    double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
     for (int i = 0; i < cloud_ptr->size(); i++)
     {
-        float x = cloud_ptr->points[i].x * 1000 + 487.01;
-        float y = cloud_ptr->points[i].y * sin(radians) * 1000 + cloud_ptr->points[i].z * cos(radians) * 1000 + 324;
-        float z = cloud_ptr->points[i].z * sin(radians) * 1000 + cloud_ptr->points[i].y * cos(radians) * 1000 + 839.93;
+        float x = cloud_ptr->points[i].x * 1000 + OX;
+        float y = cloud_ptr->points[i].y * sin(radians) * 1000 + cloud_ptr->points[i].z * cos(radians) * 1000 + OY;
+        float z = cloud_ptr->points[i].z * sin(radians) * 1000 + cloud_ptr->points[i].y * cos(radians) * 1000 + OZ;
         cloud_ptr->points[i].x = x / 1000;
         cloud_ptr->points[i].y = y / 1000;
         cloud_ptr->points[i].z = z / 1000;
@@ -84,11 +83,10 @@ void PclProcess::Circle_Extract(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr, E
 
     circle_center = fitCircleLM(cloud_ptr, 0.225, coeff);
 
-    double degree = 35.0;
     double radians = degree * M_PI / 180.0;
 
-    float x = circle_center.center[0] * 1000 + 287.01;
-    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + 324;
+    float x = circle_center.center[0] * 1000 + OX;
+    float y = circle_center.center[1] * sin(radians) * 1000 + circle_center.center[2] * cos(radians) * 1000 + OY;
 
     // float x = circle_center.center[0]*1000.0;
     // float y = circle_center.center[1]*1000.0;
